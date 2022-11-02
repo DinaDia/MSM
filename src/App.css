@@ -1,38 +1,50 @@
-.App {
-  text-align: center;
+.headerStyle{
+    background: #026345;
+    height: 85px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.addPatientButton{
+    background-color: #EBFEF5;
+    color:#01523C;
+    font-weight: bold;
+    font-size: 23px;
+    border:none;
+    border-radius: 8px;
+    padding-top: 5px;
+    height:50px;
+    margin-top:15px;
+    margin-right:7px;
+    cursor: pointer;
+    transition: 0.3ms;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.addPatientButton:hover{
+    background-color: #01523C;
+    color:white;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.addPatientButton:active{
+    opacity: 0.2;
 }
-
-.App-link {
-  color: #61dafb;
+.loginStyle{
+    border-color: #026345;
+    border-style:solid;
+    border-width: 1px;
+    width: 350px;
+    height: 500px;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+.emailStyle{
+    color:#01523C;
+    font-size: 25px;
+    justify-content: center;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.login{
+    background-color: #026345;
+
 }

@@ -1,4 +1,4 @@
-@import url('');
+
 .headerStyle{
     background: #026345;
     height: 85px;
@@ -31,10 +31,10 @@
     border-color: #026345;
     border-style:solid;
     border-width: 1px;
-    width: 350px;
+    width: 300px;
     height: 400px;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 90px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -55,7 +55,7 @@
 }
 .box{
     height:30px;
-    width:300px;
+    width:275px;
     background-color: #9FE6C9;
     margin: auto;
     border-width: 1px;

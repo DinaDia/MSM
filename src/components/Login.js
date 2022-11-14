@@ -1,8 +1,8 @@
 import '../App.css';
-import {Link} from 'react-router-dom';
 
 const Login = () => {
 
+   
 
   return (
     <div className='loginStyle'>
@@ -12,17 +12,20 @@ const Login = () => {
                 <div className='box'></div>
             </div>
             
-        <div className='passDiv'>
-            <p className="loginTextStyle">Password</p>
-            <div className='box'></div>
-        </div>
+            <div className='passDiv'>
+                <p className="loginTextStyle">Password</p>
+                <div className='box'></div>
+            </div>
 
-    </div>
-    
-    <button className='login'>
-        <Link style={{color:'white', textDecoration:'none'}}
-        >Login</Link>
+            <button className='login'>Log in</button>
+            
+        </div>
+    <p className='signUpText'>Don't have an account? Sign up here</p>
+
+    <button  className='signUp'>
+        Sign up
     </button>
+
     </div>
   )
 }

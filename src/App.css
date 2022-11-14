@@ -61,7 +61,7 @@
     border-width: 1px;
     border-color: #026345;
 }
-.login{
+.signUp{
     background-color: #026345;
     height:50px;
     color:white;
@@ -72,9 +72,9 @@
     cursor: pointer;
     
 }
-.login:hover{
+.signUp:hover{
     opacity: 0.8;
 }
-.login:active{
+.signUp:active{
     opacity: 0.3;
 }

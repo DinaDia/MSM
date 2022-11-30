@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 .headerStyle{
     background: #026345;
     height: 85px;
@@ -10,7 +10,7 @@
     background-color: #EBFEF5;
     color:#01523C;
     font-weight: bold;
-    font-size: 23px;
+    font-size: 18px;
     border:none;
     border-radius: 8px;
     padding-top: 5px;
@@ -27,54 +27,153 @@
 .addPatientButton:active{
     opacity: 0.2;
 }
-.loginStyle{
-    border-color: #026345;
-    border-style:solid;
-    border-width: 1px;
-    width: 300px;
-    height: 400px;
+
+.loginArea{
+    border: 2px solid #01523C;
     margin: auto;
-    margin-top: 90px;
+    margin-top: 100px;
+    max-width: 300px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
 
-.emailDiv{
-    height:80px;
-    margin:0;
-    padding:0;
-    margin-top:100px; 
+.firstArea{
+    margin-top: 80px;
+    padding: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
-.loginTextStyle{
+.pass{
     color:#01523C;
-    font-size: 23px;
-    margin:0;
-    padding:0;
+    font-size:18px;
+    margin-bottom: 0px;
+}
 
+.logInButton{
+    background-color: #EBFEF5;
+    border: 2px solid #01523C;
+    border-radius: 5px;
+    color:#01523C;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 15px;
+    margin-top: 0px;
+    
 }
-.box{
-    height:30px;
-    width:275px;
+
+.inputStyle{
     background-color: #9FE6C9;
-    margin: auto;
-    border-width: 1px;
-    border-color: #026345;
+    border:none;
+    padding:8px;
+    width: 250px;
+    display: block;
+    margin : 0 auto;
 }
-.signUp{
-    background-color: #026345;
-    height:50px;
+
+.imgStyle{
+    margin-left: 20px;
+    height: 85px ; 
+}
+
+
+
+.icons{
+    color:#01523C;
+    font-size: 25px;
+}
+
+.textSignup{
+    text-align: center;
+    color:#01523C;
+    margin-bottom: 0px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.signupButton{
+    background-color: #01523C;
+    border:none;
+    color:white;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 0px;
+}
+
+.lastArea{
+    margin-top: 30px;
+    max-width: 300px
+}
+
+.linkStyle{
+    color:white;
+    text-decoration: none;
+}
+
+.tableStyle{
+    margin-top: 50px;
+    margin-left: 75px;
+    border-collapse: collapse;
+    
+}
+
+.tHeadStyle{
+    padding:10px 20px 10px 20px ;
+    color: white;
+    background-color: #54997F;
+    border:2px solid white;
+}
+.tBodyStyle{
+    background-color: #9FE6C9;
+    padding: 2px 20px 2px 20px;
+    border:2px solid white;
+    color:black;
+    text-align: center;
+}
+.viewButton{
+    background-color: #01523C;
+    border:none;
+    border-radius: 5px;
+    padding:5px 20px 5px 20px; 
+    color:rgb(189, 172, 172);
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+.viewButton:hover{
+    opacity:0.7;
+}
+.viewButton:active{
+    opacity:0.2;
+}
+
+
+.editButton{
+    background-color: green;
+    border:none;
+    border-radius: 5px;
+    padding:8px 20px 8px 20px; 
     color:white;
     font-weight: bold;
     font-size: 20px;
-    text-align: center;
-    border:none;
     cursor: pointer;
+}
+
+
+.patientInfo{
+    margin-top: 100px;
+    margin-left: 250px;
+    height:300px;
+    width:500px;
+}
+
+.patientInfoButtons{
     
-}
-.signUp:hover{
-    opacity: 0.8;
-}
-.signUp:active{
-    opacity: 0.3;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;   
 }

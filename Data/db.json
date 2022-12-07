@@ -1,7 +1,7 @@
 {
     "patients":[
         {
-            "ID": 1,
+            "id": 1,
             "Name": "Emerald Blackwell",
             "Age": 35,
             "Gender": "Male",
@@ -14,7 +14,7 @@
             "ect": "Yes"
         },
         {
-            "ID": 2,
+            "id": 2,
             "Name": "Plato Wynn",
             "Age": 59,
             "Gender": "Male",
@@ -27,7 +27,7 @@
             "ect": "Yes"
         },
         {
-            "ID": 3,
+            "id": 3,
             "Name": "Irma Berger",
             "Age": 18,
             "Gender": "Male",
@@ -40,7 +40,7 @@
             "ect": "No"
         },
         {
-            "ID": 4,
+            "id": 4,
             "Name": "Lysandra Clay",
             "Age": 17,
             "Gender": "Female",
@@ -53,7 +53,7 @@
             "ect": "No"
         },
         {
-            "ID": 5,
+            "id": 5,
             "Name": "Hadley Hancock",
             "Age": 52,
             "Gender": "Female",
@@ -66,7 +66,7 @@
             "ect": "No"
         },
         {
-            "ID": 6,
+            "id": 6,
             "Name": "Debra Hopkins",
             "Age": 15,
             "Gender": "Female",
@@ -79,7 +79,7 @@
             "ect": "Yes"
         },
         {
-            "ID": 7,
+            "id": 7,
             "Name": "Jolene Thomas",
             "Age": 53,
             "Gender": "Female",
@@ -92,7 +92,7 @@
             "ect": "No"
         },
         {
-            "ID": 8,
+            "id": 8,
             "Name": "Seth House",
             "Age": 40,
             "Gender": "Male",
@@ -105,7 +105,7 @@
             "ect": "No"
         },
         {
-            "ID": 9,
+            "id": 9,
             "Name": "Rigel Dickerson",
             "Age": 55,
             "Gender": "Female",
@@ -118,7 +118,7 @@
             "ect": "No"
         },
         {
-            "ID": 10,
+            "id": 10,
             "Name": "Jaime Randolph",
             "Age": 48,
             "Gender": "Male",

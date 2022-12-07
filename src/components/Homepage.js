@@ -50,7 +50,7 @@ const Homepage = () => {
             <tbody>
               <tr key={id}>
 
-                <td className="tBodyStyle">{patient.ID}</td>
+                <td className="tBodyStyle">{patient.id}</td>
                 <td className="tBodyStyle">{patient.Name}</td>
                 <td className="tBodyStyle">{patient.Age}</td>
                 <td className="tBodyStyle">{patient.Gender}</td>
@@ -59,7 +59,7 @@ const Homepage = () => {
                 <td className="tBodyStyle">{patient.TRD}</td>
                 <td className="tBodyStyle">
                   <button className="viewButton">
-                    <Link className="linkStyle" to={'/PatientInfo'}>View</Link>
+                    <Link className="linkStyle" to={`PatientInfo/${patient.id}`}>View</Link>
                     </button>
                 </td>
                 <td className="tBodyStyle">

@@ -116,7 +116,7 @@
 
 .tableStyle{
     margin-top: 50px;
-    margin-left: 75px;
+    margin-left: 50px;
     border-collapse: collapse;
     
 }
@@ -128,7 +128,7 @@
     border:2px solid white;
 }
 .tBodyStyle{
-    background-color: #9FE6C9;
+    background-color: #9fe6c842;
     padding: 2px 20px 2px 20px;
     border:2px solid white;
     color:black;
@@ -153,7 +153,7 @@
 
 
 .editButton{
-    background-color: #79BFA3;
+    background-color: #374B43;
     border:none;
     border-radius: 5px;
     padding:8px 20px 8px 20px; 
@@ -163,7 +163,7 @@
     cursor: pointer;
 }
 .editButton:hover{
-    background-color: #54997F;
+    opacity:0.7;
 }
 .editButton:active{
     opacity:0.2;
@@ -171,10 +171,10 @@
 
 
 .deleteButton{
-    background-color: rgba(241, 8, 8, 0.726);
+    background-color: #c7000096;
     border:none;
     border-radius: 5px;
-    padding:8px 20px 8px 20px; 
+    padding:8px 13px 8px 13px; 
     color:white;
     font-weight: bold;
     font-size: 20px;
@@ -187,21 +187,67 @@
     opacity:0.2;
 }
 
-.patientInfo{
+
+
+.errorMessageStyle{
+    max-width: 300px;
     margin-top: 100px;
-    margin-left: 250px;
-    height:300px;
-    width:500px;
+    text-align: center;
 }
 
+.headingTag{
+    margin-top:50px;
+    margin-bottom:50px;
+    text-align: center;
+}
+
+.patientInfo{
+    margin-left: 80px;
+    font-weight: bold;
+    max-width: 1200px;
+    background-color: #EBFEF5;
+    padding: 5px 15px 5px 15px;
+}
 .patientInfoButtons{
     
     display:flex;
     flex-direction: row;
     justify-content: space-between;   
 }
-.errorMessageStyle{
-    max-width: 300px;
-    margin-top: 100px;
-    text-align: center;
+.patientInfoText{
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.rightButtons{
+    background-color: #2E4774;
+    border:none;
+    border-radius: 5px;
+    padding:8px 20px 8px 20px; 
+    color:white;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+.rightButtons:hover{
+    opacity:0.7;
+}
+.rightButtons:active{
+    opacity:0.2;
+}
+.backButtons{
+    background-color: #374B43;
+    border:none;
+    border-radius: 5px;
+    padding:8px 20px 8px 20px; 
+    color:white;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+.backButtons:hover{
+    opacity:0.7;
+}
+.backButtons:active{
+    opacity:0.2;
 }

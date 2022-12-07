@@ -153,7 +153,7 @@
 
 
 .editButton{
-    background-color: green;
+    background-color: #79BFA3;
     border:none;
     border-radius: 5px;
     padding:8px 20px 8px 20px; 
@@ -162,7 +162,30 @@
     font-size: 20px;
     cursor: pointer;
 }
+.editButton:hover{
+    background-color: #54997F;
+}
+.editButton:active{
+    opacity:0.2;
+}
 
+
+.deleteButton{
+    background-color: rgba(241, 8, 8, 0.726);
+    border:none;
+    border-radius: 5px;
+    padding:8px 20px 8px 20px; 
+    color:white;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+.deleteButton:hover{
+    opacity:0.7;
+}
+.deleteButton:active{
+    opacity:0.2;
+}
 
 .patientInfo{
     margin-top: 100px;
@@ -176,4 +199,9 @@
     display:flex;
     flex-direction: row;
     justify-content: space-between;   
+}
+.errorMessageStyle{
+    max-width: 300px;
+    margin-top: 100px;
+    text-align: center;
 }

@@ -7,6 +7,14 @@ const PatientInfo = () => {
     const {data:patient, error}=DataCollection('http://localhost:8000/patients'+id);
   return (
     <div>
+      {
+      
+      error && 
+        <p className="errorMessageStyle">
+          Error has occurred, please try again
+        </p>
+      }
+      {patient}
         <Header/>
         <div className='patientInfo'>
             Full name:{patient.Name}

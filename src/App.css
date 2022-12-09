@@ -278,7 +278,7 @@
     margin:0 auto;
     margin-top: 50px;
     background: #9FE6C9;
-    padding: 20px 20px 10px 20px;
+    padding: 20px 10px 10px 10px;
     max-width: 300px;
 }
 
@@ -323,11 +323,12 @@
 
 .questionDiv{
     
-    margin-top:100px;
-    margin-left: 80px;
     font-weight: bold;
-    max-width: 1200px;
+    max-width: 500px;
     padding: 5px 15px 5px 15px;
+    margin: 0 auto;
+    margin-top:70px;
+    
 }
 .confirmation{
     
@@ -337,15 +338,47 @@
     text-align: center;
     margin-bottom: 20px;
 }
-.answerButtons{
+ul{
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 40px;
+}
+li{
     background-color: #E8F3F5;
     border: 2px solid #01523C;
+    list-style: none;
     width:350px;
     text-align: left;
-    font-size: 30px; 
     cursor: pointer; 
     color:#01523C;
     font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 20px;
+    padding: 7px;
+}
+li:hover{
+    opacity: 0.8;
+}
+
+li:active{
+    opacity: 0.2;
+}
+.questionText{
+    font-size: 20px;
+    text-align: center;
+}
+.answerButtons{
+    background-color: #E8F3F5;
+    border: 2px solid #01523C;
+    list-style: none;
+    width:350px;
+    text-align: left;
+    cursor: pointer; 
+    color:#01523C;
+    font-size: 25px;
+    font-weight: bold;
     text-decoration: none;
     margin-bottom: 20px;
     padding: 7px;
@@ -356,15 +389,4 @@
 
 .answerButtons:active{
     opacity: 0.2;
-}
-
-.answerButtonsLink{
-    
-    color:#01523C;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-}
-.questionText{
-    font-size: 20px;
 }

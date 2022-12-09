@@ -16,7 +16,7 @@ const InitialQuestion = () => {
             <div className="confirmation">
                 <p className="questionText">If not, click here to start the Test</p>
                 <button className="logInButton">
-                    <Link className="testButtonsLink" to={'/firstQuestion'}>Take Test</Link>
+                    <Link className="testButtonsLink" to={'/MSMQuestions'}>Take Test</Link>
                 </button>
             </div>
         </div>

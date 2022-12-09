@@ -2,10 +2,13 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import DataCollection from '../DataCollection';
 import Header from './Header';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const PatientInfo = () => {
   const {id}=useParams();
   const {data:patient, error}=DataCollection('http://localhost:8000/patients/'+id);
+  const navigate=useNavigate();
   return (
     <div>
       <div>
@@ -74,10 +77,11 @@ const PatientInfo = () => {
               {patient.ect}</span>
           </p>
 
-          <br/>
-          <div className='patientInfoButtons'>
-              <button className='backButtons'>Go back</button>
-              <button className='rightButtons'>Edit</button>
+          <div className='smallerBoxButtonsDiv'>
+              <button className='backButtons' onClick={()=>navigate('/')}>Go back</button>
+              <button className='rightButtons'>
+                <Link className='linkStyle' to={`EditInfo/${patient.id}`}>Edit</Link>
+                </button>
           </div>
         </article>
         )

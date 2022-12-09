@@ -8,9 +8,6 @@
 }
 .addPatientButton{
     background-color: #EBFEF5;
-    color:#01523C;
-    font-weight: bold;
-    font-size: 18px;
     border:none;
     border-radius: 8px;
     padding-top: 5px;
@@ -21,8 +18,7 @@
     transition: 0.3ms;
 }
 .addPatientButton:hover{
-    background-color: #01523C;
-    color:white;
+    opacity: 0.8;
 }
 .addPatientButton:active{
     opacity: 0.2;
@@ -56,15 +52,37 @@
     background-color: #EBFEF5;
     border: 2px solid #01523C;
     border-radius: 5px;
+    padding: 10px 20px 10px 20px;
+    margin: 15px;
+    margin-top: 0px;
+    cursor: pointer;
+    
+}
+.logInButton:hover{
+    background-color:#01523C;
+    color:#EBFEF5;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+ }
+
+.logInButton:active{
+    opacity: 0.2;
+}
+.testButtonsLink{
+
     color:#01523C;
     font-size: 20px;
     font-weight: bold;
-    padding: 10px;
-    margin: 15px;
-    margin-top: 0px;
-    
+    text-decoration: none;
 }
-
+.testButtonsLink:hover{
+    
+    color:#EBFEF5;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
 .inputStyle{
     background-color: #9FE6C9;
     border:none;
@@ -112,6 +130,14 @@
 .linkStyle{
     color:white;
     text-decoration: none;
+}
+.linkStyleForAdd{
+    
+    color:#01523C;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+
 }
 
 .tableStyle{
@@ -197,22 +223,18 @@
 
 .headingTag{
     margin-top:50px;
-    margin-bottom:50px;
+    color:#79BFA3;
     text-align: center;
 }
 
 .patientInfo{
+    
+    margin-top:50px;
     margin-left: 80px;
     font-weight: bold;
     max-width: 1200px;
     background-color: #EBFEF5;
     padding: 5px 15px 5px 15px;
-}
-.patientInfoButtons{
-    
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;   
 }
 .patientInfoText{
     font-weight: 400;
@@ -239,7 +261,7 @@
     background-color: #374B43;
     border:none;
     border-radius: 5px;
-    padding:8px 20px 8px 20px; 
+    padding:8px 10px 8px 10px; 
     color:white;
     font-weight: bold;
     font-size: 20px;
@@ -250,4 +272,99 @@
 }
 .backButtons:active{
     opacity:0.2;
+}
+.formStyle{
+    display: block;
+    margin:0 auto;
+    margin-top: 50px;
+    background: #9FE6C9;
+    padding: 20px 20px 10px 20px;
+    max-width: 300px;
+}
+
+
+.infoInputStyle{
+    background-color: white;
+    border:none;
+    padding:8px;
+    width: 250px;
+    display: block;
+    margin : 0 auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.selectStyle{
+    background-color: white;
+    border:none;
+    padding:8px;
+    width: 270px;
+    display: block;
+    margin : 0 auto;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+.smallerBoxButtonsDiv{
+    margin-top: 25px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 20px 15px 20px;   
+}
+.endButtonDiv{
+    
+    margin: 0px 150px 0px 150px;
+    margin-top: 25px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 20px 15px 20px;
+ 
+}
+
+.questionDiv{
+    
+    margin-top:100px;
+    margin-left: 80px;
+    font-weight: bold;
+    max-width: 1200px;
+    padding: 5px 15px 5px 15px;
+}
+.confirmation{
+    
+    margin: 0 auto;
+    max-width: 500px;
+    margin-left: 0 auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.answerButtons{
+    background-color: #E8F3F5;
+    border: 2px solid #01523C;
+    width:350px;
+    text-align: left;
+    font-size: 30px; 
+    cursor: pointer; 
+    color:#01523C;
+    font-size: 25px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    padding: 7px;
+}
+.answerButtons:hover{
+    opacity: 0.8;
+}
+
+.answerButtons:active{
+    opacity: 0.2;
+}
+
+.answerButtonsLink{
+    
+    color:#01523C;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.questionText{
+    font-size: 20px;
 }

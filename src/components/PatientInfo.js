@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import DataCollection from '../DataCollection';
 import Header from './Header';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
 
 const PatientInfo = () => {
   const {id}=useParams();
@@ -78,15 +78,17 @@ const PatientInfo = () => {
           </p>
 
           <div className='smallerBoxButtonsDiv'>
-              <button className='backButtons' onClick={()=>navigate('/')}>Go back</button>
-              <button className='rightButtons'>
-                <Link className='linkStyle' to={`EditInfo/${patient.id}`}>Edit</Link>
-                </button>
+              <button className='backButtons' 
+              onClick={()=>navigate('/')}>
+                Go back</button>
+
+              <button className='rightButtons'
+              onClick={()=>navigate(`/EditInfo/${patient.id}`)}>
+                Edit</button>
           </div>
         </article>
         )
         }
-        
         
     </div>
   )

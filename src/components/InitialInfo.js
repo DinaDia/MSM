@@ -2,7 +2,6 @@ import React from 'react'
 import Header from './Header'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 const InitialInfo = () => {
 
@@ -11,6 +10,7 @@ const InitialInfo = () => {
     const [gender, setGender]=useState('');
     const [phone, setPhone]=useState('');
     const navigate=useNavigate();
+
   return (
     <div>
         <Header/>
@@ -53,8 +53,9 @@ const InitialInfo = () => {
                 <button className='backButtons'
                 onClick={()=>navigate('/')}>
                     Go back</button>
-                <button className='rightButtons'>
-                    <Link className='linkStyle' to={'/InitialQuestion'}>Next</Link></button>
+                <button className='rightButtons'
+                onClick={()=>navigate('/InitialQuestion')}>
+                    Next</button>
               </div>
 
             </form>

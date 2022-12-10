@@ -1,4 +1,3 @@
-
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 // import {useState, useEffect} from 'react';
@@ -9,6 +8,7 @@ import EditInfo from './components/EditInfo';
 import InitialInfo from './components/InitialInfo';
 import InitialQuestion from './components/InitialQuestion';
 import MSMQuestions from './components/MSMQuestions';
+import AddInfo from './components/AddInfo';
 // import { ClipLoader } from 'react-spinners';
 
 function App() {
@@ -22,10 +22,8 @@ function App() {
           <Route exact path="/InitialInfo" element={<InitialInfo/>}/>
           <Route exact path="/InitialQuestion" element={<InitialQuestion/>}/>
           <Route exact path="/MSMQuestions" element={<MSMQuestions/>}/>
-
+          <Route exact path="/AddInfo" element={<AddInfo/>}/>
           
-
-
         </Routes>
         </BrowserRouter>
 

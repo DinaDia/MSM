@@ -28,16 +28,8 @@ const MSMQuestions = () => {
         {
             msm: "Received treatment for the depression?",
             options:[
-                {id:0, answer: "Yes", value: 0},
-                {id:1, answer: "No", value: 0},
-            ],
-        },
-        {
-            msm: "Has taken antidepressant for treatment?",
-            options:[
-                {id:0, answer: "Yes", value: 1},
-                {id:1, answer: "No", value: 0},
-                
+                {id:1, answer: "Yes", value: 0},
+                {id:0, answer: "No", value: 0},
             ],
         },
         {
@@ -53,15 +45,15 @@ const MSMQuestions = () => {
         {
             msm: "Received augmentation?",
             options:[
-                {id:0, answer: "Yes", value: 1},
-                {id:1, answer: "No", value: 0},
+                {id:1, answer: "Yes", value: 1},
+                {id:0, answer: "No", value: 0},
             ],
         },
         {
             msm: "Received ECT?",
             options:[
-                {id:0, answer: "Yes", value: 1},
-                {id:1, answer: "No", value: 0},            
+                {id:1, answer: "Yes", value: 1},
+                {id:0, answer: "No", value: 0},            
             ],
         }
                 ];
@@ -82,7 +74,7 @@ const MSMQuestions = () => {
   return (
     <div>
         <Header/>
-
+        
         {result ? (
             <div className="questionDiv">{score}</div>
         ): 

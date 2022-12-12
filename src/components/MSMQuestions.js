@@ -5,6 +5,8 @@ const MSMQuestions = () => {
     const [result, setResult]=useState(false);
     const [question, setQuestion]=useState(0);
     const [score, setScore]=useState(0);
+    // const [scoreDetail, setScoreDetail]=useState(null);
+    // const [ID, setID]=useState();
 
     const questions=[
         {
@@ -29,7 +31,7 @@ const MSMQuestions = () => {
             msm: "Received treatment for the depression?",
             options:[
                 {id:1, answer: "Yes", value: 0},
-                {id:0, answer: "No", value: 0},
+                {id:10, answer: "No", value: 0},
             ],
         },
         {
@@ -57,18 +59,21 @@ const MSMQuestions = () => {
             ],
         }
                 ];
-        
-        const optionClicked=(value)=>{
-            setScore(score+value);
-            if (question + 1 < questions.length){
-                setQuestion(question + 1);
 
+
+    const optionClicked=(value, id, answer)=>{
+            setScore(score+value);
+            
+            if ((question + 1 < questions.length)){
+                setQuestion(question + 1);
             }
                 
             else {
                 setResult(true);
               }
             };
+
+        
         
    
   return (
@@ -76,7 +81,9 @@ const MSMQuestions = () => {
         <Header/>
         
         {result ? (
-            <div className="questionDiv">{score}</div>
+            <div className="questionDiv">
+            {score}
+</div>
         ): 
         (
             <div className="questionDiv">
@@ -85,9 +92,10 @@ const MSMQuestions = () => {
             {questions[question].options.map((option)=>{
                 return(
                     <li key={option.id}
-                    onClick={()=> optionClicked(option.value)}
+                    onClick={()=> optionClicked(option.value, option.id, option.answer)}
                     >
                         {option.answer}
+                        
                     </li>
                 );
                 

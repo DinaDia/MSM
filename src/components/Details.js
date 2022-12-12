@@ -1,7 +1,22 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "./Header";
 const Details = ({data:Patients}) => {
-  const navigate=useNavigate();
+
+   const navigate=useNavigate();
+   const {id}=useParams();
+
+  
+  const handleClick=(e)=>{
+    e.preventDefault();
+    fetch('http://localhost:8000/patients/'+id, {
+      method: 'DELETE'
+    }).then(() => {
+      navigate('/');
+    }) 
+  
+}
+
+  
   return (
     <div>  
       <Header/>
@@ -48,7 +63,7 @@ const Details = ({data:Patients}) => {
                 </td>
                 <td className="tBodyStyle">
                     <button className="deleteButton"
-                    onClick={()=>('/DeleteInfo')}>Delete
+                    onClick={handleClick}>Delete
                     </button>
                 </td>
 

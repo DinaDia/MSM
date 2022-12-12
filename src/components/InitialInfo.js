@@ -1,15 +1,31 @@
-import React from 'react'
-import Header from './Header'
+import Header from './Header';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const InitialInfo = () => {
 
-    const [name, setName]=useState('');
-    const [age, setAge]=useState('');
-    const [gender, setGender]=useState('');
-    const [phone, setPhone]=useState('');
+    const [Name, setName]=useState('');
+    const [Age, setAge]=useState('');
+    const [Gender, setGender]=useState('');
+    const [Phone, setPhone]=useState('');
     const navigate=useNavigate();
+
+    const handleSubmit=(e)=>{
+      e.preventDefault();
+      const patient={Name, Age, Gender, Phone};
+      
+      fetch('http://localhost:8000/patients', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(patient)
+    }).then(() => {
+      navigate('/InitialQuestion')
+    })
+    
+  }
+
+    
 
   return (
     <div>
@@ -17,23 +33,23 @@ const InitialInfo = () => {
         <div>
             <h2 className='headingTag'>New patient</h2>
 
-            <form className='formStyle'>
-              <label>Full name</label>
+            <form className='formStyle' onSubmit={handleSubmit}>
+              <label>Full Name</label>
               <input className='infoInputStyle' type="text"
               required
-              value={name}
+              value={Name}
               onChange={(e)=>setName(e.target.value)}  />
 
               <label>Age</label>
               <input className='infoInputStyle' type="text"
               required
-              value={age}
+              value={Age}
               onChange={(e)=>setAge(e.target.value)}  />
               
               <label>Gender</label>
               <select className='selectStyle' type="text"
               required
-              value={gender}
+              value={Gender}
               onChange={(e)=>setGender(e.target.value)}>
                 
                 <option hidden>Select Gender</option>
@@ -45,7 +61,7 @@ const InitialInfo = () => {
               <label>Phone Number</label>
               <input className='infoInputStyle' type="tel"
               required
-              value={phone}
+              value={Phone}
               onChange={(e)=>setPhone(e.target.value)}  />
 
 
@@ -53,8 +69,7 @@ const InitialInfo = () => {
                 <button className='backButtons'
                 onClick={()=>navigate('/')}>
                     Go back</button>
-                <button className='rightButtons'
-                onClick={()=>navigate('/InitialQuestion')}>
+                <button className='rightButtons'>
                     Next</button>
               </div>
 

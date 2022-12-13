@@ -123,6 +123,27 @@
       "meds": 2,
       "aug": "Yes",
       "ect": "No"
+    },
+    {
+      "Name": "dina",
+      "Age": "11",
+      "Gender": "Male",
+      "Phone": "544544",
+      "id": 11
+    },
+    {
+      "Name": "Lola",
+      "Age": "44",
+      "Gender": "Male",
+      "Phone": "7889",
+      "id": 12
+    },
+    {
+      "Name": "Dina   Muktar",
+      "Age": "1",
+      "Gender": "",
+      "Phone": "969125434",
+      "id": 13
     }
   ]
 }

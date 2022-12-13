@@ -5,8 +5,7 @@ const MSMQuestions = () => {
     const [result, setResult]=useState(false);
     const [question, setQuestion]=useState(0);
     const [score, setScore]=useState(0);
-    // const [scoreDetail, setScoreDetail]=useState(null);
-    // const [ID, setID]=useState();
+    const [finalValues, setFinalValues]=useState([]);
 
     const questions=[
         {
@@ -61,11 +60,20 @@ const MSMQuestions = () => {
                 ];
 
 
-    const optionClicked=(value, id, answer)=>{
+    const optionClicked=(e, value, answer)=>{
             setScore(score+value);
+            // setFinalValues([...finalValues, {
+            //     Id:id,
+            //     Answer:answer
+            // }])
             
-            if ((question + 1 < questions.length)){
-                setQuestion(question + 1);
+
+            console.log(e.currentTarget);
+
+
+            if ((question + 1 < questions.length) ){
+               setQuestion(question + 1);
+               
             }
                 
             else {
@@ -83,6 +91,7 @@ const MSMQuestions = () => {
         {result ? (
             <div className="questionDiv">
             {score}
+            
 </div>
         ): 
         (

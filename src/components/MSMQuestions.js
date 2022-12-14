@@ -4,8 +4,12 @@ import Header from "./Header";
 const MSMQuestions = () => {
     const [result, setResult]=useState(false);
     const [question, setQuestion]=useState(0);
-    const [score, setScore]=useState(0);
-    const [finalValues, setFinalValues]=useState([]);
+    const [score, setScore]=useState(0);    
+    const [currentAnswer, setCurrentAnswer]=useState([]);
+    const [currentId, setCurrentId]=useState([]);
+   
+
+
 
     const questions=[
         {
@@ -30,7 +34,7 @@ const MSMQuestions = () => {
             msm: "Received treatment for the depression?",
             options:[
                 {id:1, answer: "Yes", value: 0},
-                {id:10, answer: "No", value: 0},
+                {id:0, answer: "No", value: 0},
             ],
         },
         {
@@ -60,25 +64,21 @@ const MSMQuestions = () => {
                 ];
 
 
-    const optionClicked=(e, value, answer)=>{
-            setScore(score+value);
-            // setFinalValues([...finalValues, {
-            //     Id:id,
-            //     Answer:answer
-            // }])
-            
-
-            console.log(e.currentTarget);
-
-
-            if ((question + 1 < questions.length) ){
-               setQuestion(question + 1);
-               
-            }
                 
-            else {
-                setResult(true);
-              }
+    const optionClicked=(value, id, answer)=>{
+                    setScore(score+value);
+                    setCurrentId([...currentId,id]);
+                    setCurrentAnswer([...currentAnswer,answer]);
+
+                    if ((question + 1 < questions.length)){
+                            setQuestion(question + 1);
+                            console.log(currentId[2]===1)
+                     }
+                         
+                     else {
+                         setResult(true);                
+                       }
+                
             };
 
         
@@ -90,9 +90,10 @@ const MSMQuestions = () => {
         
         {result ? (
             <div className="questionDiv">
-            {score}
+            <div>{score}</div> 
             
-</div>
+            
+        </div>
         ): 
         (
             <div className="questionDiv">

@@ -1,11 +1,15 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import DataCollection from "../DataCollection";
 import Header from "./Header";
 
 
-const MSMQuestions = ({Patient}) => {
+const MSMQuestions = () => {
     
 
+    const {error}=DataCollection('http://localhost:8000/patients');
+    
     const [Duration, setDuration]=useState('');
     const [Severity, setSeverity]=useState('');
     const [TRD, setTRD]=useState('');
@@ -20,7 +24,9 @@ const MSMQuestions = ({Patient}) => {
     const [score, setScore]=useState(0);    
     const [currentAnswer, setCurrentAnswer]=useState([]);
     const [currentId, setCurrentId]=useState([]);
-    const [finalResult, setFinalResult]=useState('');
+    const [finalResult, setFinaLResult]=useState('');
+    const [trdInfo, setTrdInfo]=useState('');
+
 
    
 
@@ -82,9 +88,7 @@ const MSMQuestions = ({Patient}) => {
             ],
         }
                 ];
-
-                
-                
+       
     const OptionClicked=(value, id, answer)=>{
             setScore(score+value);
             setCurrentAnswer([...currentAnswer, answer]);
@@ -123,7 +127,6 @@ const MSMQuestions = ({Patient}) => {
                     if ((question + 1 <questions.length)){
                         const arr=[];
                         arr.push(id);
-                        
                         if(arr[0]!== 100){
                             setQuestion(question + 1);
                         }
@@ -133,35 +136,68 @@ const MSMQuestions = ({Patient}) => {
                      }
                          
                      else {
-                         setResult(true);              
+                         setResult(true); 
+                         console.log(score<3);
                        } 
+
+
+                       if(score<3){
+                        setFinaLResult('MSM not detected');
+                        setTrdInfo(`Patient doesn't have treatment resistance`);
+                       }
+                       else if(score>3 && score<=6){
+                        setFinaLResult('MSM detected');
+                        setTrdInfo(`Patient has treatment resistance with mild severity`)
+                       }
+                       else if(score>7 && score<=10){
+                        setFinaLResult('MSM detected');
+                        setTrdInfo('Patient has treatment resistance with moderate severity');
+                       }
+                       else {
+                        setFinaLResult('MSM detected');
+                        setTrdInfo('Patient has treatment resistance with severe severity');
+                       }
+
+                
+
+               
                     };
 
-     
-
     const handleSubmit=(e)=>{
-                        e.preventDefault();
-                        const DetailedInfo={  Duration,Severity, TRD, Level, aug, ect};
-
-                        fetch('http://localhost:8000/patients', {
-                        method: 'POST',
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(DetailedInfo)
-                      }).then(() => {
-                        navigate('/')
-                      })
+        e.preventDefault();
+        const DetailedInfo={ Duration,Severity, TRD, Level, aug, ect};
+        fetch('http://localhost:8000/patients', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(DetailedInfo)
+        }).then(() => {
+        navigate('/')
+         })
                       
                     }
+
+        
 
                     
    
   return (
     <div>
+        {
+        error && 
+        <div className="errorMessageStyle">
+          Error has occurred, please try again
+        </div>
+      }
+
+      {
+        <div>
         <Header/>
         
         {result ? (
-            <div className="questionDiv">
-            {score}
+            <div className="MSMResult">
+            <h2>{finalResult}</h2>
+            <p>{trdInfo} and has {Severity.toLowerCase()} symptoms  that has lasted for {Duration.toLowerCase()}</p>
+            
 
 
            
@@ -197,6 +233,9 @@ const MSMQuestions = ({Patient}) => {
 
         
         
+    </div>
+      }
+     
     </div>
   )
 }

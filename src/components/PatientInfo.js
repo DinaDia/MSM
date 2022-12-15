@@ -9,19 +9,33 @@ const PatientInfo = () => {
   const {id}=useParams();
   const {data:patient, error}=DataCollection('http://localhost:8000/patients/'+id);
   const navigate=useNavigate();
+
+  const handleClick=(id)=>{
+    if(window.confirm("Confirm you want to delete this entry")){
+    
+    fetch(`http://localhost:8000/patients/` + patient.id, {
+
+      method: 'DELETE'
+    }).then(() => {
+      navigate('/');
+    })   
+  }
+}
+
+
   return (
     <div>
-      <div>
       {error && 
         <div className="errorMessageStyle">
           Error has occurred, please try again
         </div>
       }
-      </div>
-      <Header/>
-      <h2 className='headingTag'>Patient record</h2>
       {
         patient && (
+           <div>
+            <Header/>
+            <h2 className='headingTag'>Patient record</h2>
+      
           <article className='patientInfo'>
           <p>Full name:&nbsp;
             <span className='patientInfoText'>
@@ -78,15 +92,18 @@ const PatientInfo = () => {
           </p>
 
           <div className='smallerBoxButtonsDiv'>
-              <button className='backButtons' 
-              onClick={()=>navigate('/')}>
-                Go back</button>
+              <button className="deleteButton"
+              onClick={handleClick}>
+                Delete</button>
+                
 
               <button className='rightButtons'
               onClick={()=>navigate(`/EditInfo/${patient.id}`)}>
                 Edit</button>
           </div>
         </article>
+        
+        </div>
         )
         }
         

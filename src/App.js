@@ -9,6 +9,7 @@ import InitialInfo from './components/InitialInfo';
 import InitialQuestion from './components/InitialQuestion';
 import MSMQuestions from './components/MSMQuestions';
 import AddInfo from './components/AddInfo';
+import Questions from './components/Questions';
 // import { ClipLoader } from 'react-spinners';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/InitialInfo" element={<InitialInfo/>}/>
           <Route exact path="/InitialQuestion" element={<InitialQuestion/>}/>
           <Route exact path="/MSMQuestions" element={<MSMQuestions/>}/>
+          <Route exact path="/Questions" element={<Questions/>}/>
           <Route exact path="/AddInfo" element={<AddInfo/>}/>
           
         </Routes>

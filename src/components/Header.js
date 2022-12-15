@@ -8,12 +8,12 @@ const Header = () => {
     <div className="headerStyle">
       
       <img className="imgStyle"
-      src="https://www.cdt-africa.org/templates/g5_helium/custom/images/Logo/Asset%206logo%20revisedd%20.png" 
+      src="	https://www.cdt-africa.org/templates/g5_helium/custom/images/Logo/Asset%206logo%20revisedd%20.png" 
       alt="logo"
       onClick={()=>navigate('/')}/>
       
       <button className="addPatientButton"
-      onClick={()=>navigate('/InitialInfo')}>
+      onClick={()=>navigate('/Questions')}>
         Add new patient</button>
       
     </div>

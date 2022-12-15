@@ -1,36 +1,11 @@
 {
   "patients": [
     {
-      "id": 3,
-      "Name": "Irma Berger",
-      "Age": 18,
-      "Gender": "Male",
-      "Duration": "Acute",
-      "Severity": "Subsyndromal",
-      "TRD": "No",
-      "Level": "Level 5",
-      "meds": 16,
-      "aug": "Yes",
-      "ect": "No"
-    },
-    {
-      "id": 4,
-      "Name": "Lysandra Clay",
-      "Age": 17,
-      "Gender": "Female",
-      "Duration": "Acute",
-      "Severity": "Severe without psychosis",
-      "TRD": "No",
-      "Level": "Level 2",
-      "meds": 10,
-      "aug": "No",
-      "ect": "No"
-    },
-    {
       "id": 5,
       "Name": "Hadley Hancock",
       "Age": 52,
       "Gender": "Female",
+      "Msm": "3",
       "Duration": "Chronic",
       "Severity": "Mild",
       "TRD": "No",
@@ -44,6 +19,7 @@
       "Name": "Debra Hopkins",
       "Age": 15,
       "Gender": "Female",
+      "Msm": "7",
       "Duration": "Sub acute",
       "Severity": "Severe without psychosis",
       "TRD": "No",
@@ -53,26 +29,11 @@
       "ect": "Yes"
     },
     {
-      "Duration": "Less than a year",
-      "Severity": "Subsyndromal",
-      "TRD": "No",
+      "Name": "Dina   Muktar",
+      "Age": "11",
+      "Gender": "",
+      "Phone": "969125434",
       "id": 7
-    },
-    {
-      "Duration": "Between a year and two",
-      "Severity": "Moderate",
-      "TRD": "Yes",
-      "Level": "Level 2",
-      "aug": "Yes",
-      "ect": "Yes",
-      "id": 8
-    },
-    {
-      "Duration": "Less than a year",
-      "Severity": "Subsyndromal",
-      "TRD": "No",
-      "Level": "Not identified",
-      "id": 9
     }
   ]
 }

@@ -1,10 +1,21 @@
 import { useNavigate } from "react-router-dom";
+import DataCollection from "../DataCollection";
 import Header from "./Header"
 
 const InitialQuestion = () => {
     const navigate=useNavigate();
+    const {error}=DataCollection('http://localhost:8000/patients');
   return (
     <div>
+        {
+      error && 
+        <div className="errorMessageStyle">
+          Error has occurred, please try again
+        </div>
+      }
+
+      {
+        <div>
         <Header/>
         <div className="questionDiv">
             <div className="confirmation">
@@ -22,6 +33,9 @@ const InitialQuestion = () => {
             </div>
         </div>
     </div>
+      }
+    </div>
+    
   )
 }
 

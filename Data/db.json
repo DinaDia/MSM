@@ -1,26 +1,6 @@
 {
   "patients": [
     {
-      "Name": "Dina   Muktar",
-      "Age": "1",
-      "Gender": "",
-      "Phone": "969125434",
-      "id": 1
-    },
-    {
-      "id": 2,
-      "Name": "Plato Wynn",
-      "Age": 59,
-      "Gender": "Male",
-      "Duration": "Acute",
-      "Severity": "Severe without psychosis",
-      "TRD": "Yes",
-      "Level": "Level 4",
-      "meds": 5,
-      "aug": "No",
-      "ect": "Yes"
-    },
-    {
       "id": 3,
       "Name": "Irma Berger",
       "Age": 18,
@@ -73,91 +53,26 @@
       "ect": "Yes"
     },
     {
-      "id": 7,
-      "Name": "Jolene Thomas",
-      "Age": 53,
-      "Gender": "Female",
-      "Duration": "Acute",
-      "Severity": "Severe without psychosis",
-      "TRD": "Yes",
-      "Level": "Level 5",
-      "meds": 15,
-      "aug": "No",
-      "ect": "No"
-    },
-    {
-      "id": 8,
-      "Name": "Seth House",
-      "Age": 40,
-      "Gender": "Male",
-      "Duration": "Chronic",
-      "Severity": "Severe without psychosis",
+      "Duration": "Less than a year",
+      "Severity": "Subsyndromal",
       "TRD": "No",
-      "Level": "Level 5",
-      "meds": 4,
-      "aug": "No",
-      "ect": "No"
+      "id": 7
     },
     {
-      "id": 9,
-      "Name": "Rigel Dickerson",
-      "Age": 55,
-      "Gender": "Female",
-      "Duration": "Sub acute",
-      "Severity": "Severe without psychosis",
+      "Duration": "Between a year and two",
+      "Severity": "Moderate",
       "TRD": "Yes",
       "Level": "Level 2",
-      "meds": 15,
-      "aug": "No",
-      "ect": "No"
-    },
-    {
-      "id": 10,
-      "Name": "Jaime Randolph",
-      "Age": 48,
-      "Gender": "Male",
-      "Duration": "Chronic",
-      "Severity": "Severe with psychosis",
-      "TRD": "No",
-      "Level": "Level 4",
-      "meds": 2,
       "aug": "Yes",
-      "ect": "No"
+      "ect": "Yes",
+      "id": 8
     },
     {
-      "Name": "dina",
-      "Age": "11",
-      "Gender": "Male",
-      "Phone": "544544",
-      "id": 11
-    },
-    {
-      "Name": "Lola",
-      "Age": "44",
-      "Gender": "Male",
-      "Phone": "7889",
-      "id": 12
-    },
-    {
-      "Name": "Dina   Muktar",
-      "Age": "1",
-      "Gender": "",
-      "Phone": "969125434",
-      "id": 13
-    },
-    {
-      "Name": "Dina   Muktar",
-      "Age": "11",
-      "Gender": "",
-      "Phone": "969125434",
-      "id": 14
-    },
-    {
-      "Name": "dd",
-      "Age": "dd",
-      "Gender": "Male",
-      "Phone": "1222",
-      "id": 15
+      "Duration": "Less than a year",
+      "Severity": "Subsyndromal",
+      "TRD": "No",
+      "Level": "Not identified",
+      "id": 9
     }
   ]
 }

@@ -13,21 +13,17 @@ const InitialInfo = () => {
 
     const handleSubmit=(e)=>{
       e.preventDefault();
-      const patient={Name, Age, Gender, Phone};
-      
-      fetch('http://localhost:8000/patients', {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(patient)
-    }).then(() => {
-      navigate('/InitialQuestion')
-    })
+      const Patient={Name, Age, Gender, Phone};
+      console.log(Patient)
+      navigate('/InitialQuestion');   
     
   }
 
     
 
-  return (
+  return  (
+
+    
     <div>
         <Header/>
         <div>
@@ -78,5 +74,4 @@ const InitialInfo = () => {
     </div>
   )
 }
-
 export default InitialInfo

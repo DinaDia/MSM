@@ -20,7 +20,7 @@ const EditInfo = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(patient)
     }).then(() => {
-      navigate('/InitialQuestion')
+      navigate('/AddInfo')
     })
     
   }

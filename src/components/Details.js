@@ -9,6 +9,8 @@ const Details = ({data:Patients}) => {
   const handleClick=(e)=>{
     e.preventDefault();
     fetch('http://localhost:8000/patients/'+id, {
+
+     
       method: 'DELETE'
     }).then(() => {
       navigate('/');

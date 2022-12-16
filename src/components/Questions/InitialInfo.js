@@ -1,10 +1,10 @@
-import Header from './Header';
+import Header from '../Header';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import DataCollection from '../DataCollection';
+import DataCollection from '../../DataCollection';
 
 
-const InitialInfo = ({order}) => {
+const InitialInfo = ({onSubmit}) => {
 
     const {error}=DataCollection('http://localhost:8000/patients');
     
@@ -16,16 +16,8 @@ const InitialInfo = ({order}) => {
 
     const handleSubmit=(e)=>{
       e.preventDefault();
-      const Patient={Name, Age, Gender, Phone}
-
-      fetch('http://localhost:8000/patients', {
-        method: 'POST',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Patient)
-        }).then(() => {
-        navigate('/InitialQuestion')
-         })  
-         order ++;
+      onSubmit(Name, Age, Gender, Phone);
+      
   }
 
     

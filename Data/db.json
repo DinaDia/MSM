@@ -5,12 +5,12 @@
       "Name": "Hadley Hancock",
       "Age": 52,
       "Gender": "Female",
-      "Msm": "3",
+      "MSM": "3",
       "Duration": "Chronic",
       "Severity": "Mild",
       "TRD": "No",
       "Level": "Level 4",
-      "meds": 10,
+      "med": 10,
       "aug": "No",
       "ect": "No"
     },
@@ -19,21 +19,15 @@
       "Name": "Debra Hopkins",
       "Age": 15,
       "Gender": "Female",
-      "Msm": "7",
+      "MSM": "7",
       "Duration": "Sub acute",
       "Severity": "Severe without psychosis",
       "TRD": "No",
       "Level": "Level 3",
-      "meds": 4,
+      "med": 4,
       "aug": "Yes",
-      "ect": "Yes"
-    },
-    {
-      "Name": "Dina   Muktar",
-      "Age": "11",
-      "Gender": "",
-      "Phone": "969125434",
-      "id": 7
+      "ect": "Yes",
+      "lists": ["ABC", "CDE"]
     }
   ]
 }

@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import DataCollection from "../DataCollection";
-import Header from "./Header"
+import DataCollection from "../../DataCollection";
+import Header from "../Header"
 
-const InitialQuestion = () => {
+const InitialQuestion = ({firstSubmit}) => {
     const navigate=useNavigate();
     const {error}=DataCollection('http://localhost:8000/patients');
   return (
@@ -21,15 +21,14 @@ const InitialQuestion = () => {
             <div className="confirmation">
                 <p className="questionText">Has the diagnosis of depression been confirmed?</p>
                 <button className="answerButtons"
-                onClick={()=>navigate('/AddInfo')}>Yes
+                id='1'>Yes
                 </button>
             </div>
 
             <div className="confirmation">
                 <p className="questionText">If not, click here to start the Test</p>
-                <button className="logInButton"
-                onClick={()=>navigate('/MSMQuestions')}>
-                    Take Test</button>
+                <button className="logInButton">
+                  Take Test</button>
             </div>
         </div>
     </div>

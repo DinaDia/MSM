@@ -74,12 +74,12 @@ const PatientInfo = () => {
           </p>
           <p>Number of medication taken: 
             <span className='patientInfoText'>
-              {patient.meds}
+              {patient.med}
             </span>
           </p>
           <div>List of medication taken: 
             <span className='patientInfoText'>
-              {patient.Age}
+
             </span>
           </div>
           <p>Augmentation: 
@@ -98,8 +98,8 @@ const PatientInfo = () => {
                 
 
               <button className='rightButtons'
-              onClick={()=>navigate(`/EditInfo/${patient.id}`)}>
-                Edit</button>
+              onClick={()=>navigate(`/EditOptions/${patient.id}`)}>
+                Edit Options</button>
           </div>
         </article>
         

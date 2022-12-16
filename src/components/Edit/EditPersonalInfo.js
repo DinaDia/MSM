@@ -1,12 +1,13 @@
-import Header from './Header';
+import Header from '../Header';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import DataCollection from '../DataCollection';
+import DataCollection from '../../DataCollection';
+
 
 
 const EditInfo = () => {
 
-    const {error}=DataCollection('http://localhost:8000/patients');
+    const {data:patient, error}=DataCollection('http://localhost:8000/patients');
 
     const [Name, setName]=useState('');
     const [Age, setAge]=useState('');
@@ -82,7 +83,7 @@ const EditInfo = () => {
              <div className='smallerBoxButtonsDiv'>
                <button className='backButtons'
                onClick={()=>navigate('/')}>
-                   Go back</button>
+                   Cancel</button>
                <button className='rightButtons'>
                    Next</button>
              </div>

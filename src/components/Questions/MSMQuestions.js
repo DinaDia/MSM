@@ -1,11 +1,11 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DataCollection from "../DataCollection";
-import Header from "./Header";
+import DataCollection from "../../DataCollection";
+import Header from "../Header";
 
 
-const MSMQuestions = () => {
+const MSMQuestions = ({secondSubmit}) => {
     
 
     const {error}=DataCollection('http://localhost:8000/patients');
@@ -22,6 +22,7 @@ const MSMQuestions = () => {
     const [result, setResult]=useState(false);
     const [question, setQuestion]=useState(0);
     const [score, setScore]=useState(0);    
+    const [MSM, setMSM]=useState(0);
     const [currentAnswer, setCurrentAnswer]=useState([]);
     const [currentId, setCurrentId]=useState([]);
     const [finalResult, setFinaLResult]=useState('');
@@ -122,8 +123,29 @@ const MSMQuestions = () => {
                 default:
                 setLevel('Not identified');
             }
-            setAug(currentAnswer[4]);
-            setEct(currentAnswer[5]);
+            
+            const augLevel=currentId[4];
+            switch(augLevel){
+                case 1:
+                setAug('Yes');
+                break;
+
+                default:
+                setAug('No')
+            }
+
+            
+            const ectLevel=currentId[5];
+            switch(ectLevel){
+                case 1:
+                setEct('Yes');
+                break;
+
+                default:
+                setEct('No')
+            }
+
+            
                     if ((question + 1 <questions.length)){
                         const arr=[];
                         arr.push(id);
@@ -137,8 +159,9 @@ const MSMQuestions = () => {
                          
                      else {
                          setResult(true); 
-                         console.log(score<3);
                        } 
+                    
+                       setMSM(score);
 
 
                        if(score<3){
@@ -164,17 +187,11 @@ const MSMQuestions = () => {
                     };
 
     const handleSubmit=(e)=>{
+
         e.preventDefault();
-        const DetailedInfo={ Duration,Severity, TRD, Level, aug, ect};
-        fetch('http://localhost:8000/patients', {
-        method: 'POST',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(DetailedInfo)
-        }).then(() => {
-        navigate('/')
-         })
-                      
-                    }
+        secondSubmit( Duration, Severity, MSM, TRD, Level, aug, ect)
+                    
+    }
 
         
 
@@ -208,7 +225,7 @@ const MSMQuestions = () => {
 
               <button className='rightButtons'
               onClick={handleSubmit}>
-                Save</button>
+                Complete</button>
           </div>
             
             </div>

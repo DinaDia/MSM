@@ -46,7 +46,7 @@ const Details = ({data:Patients}) => {
                   <td className="tBodyStyle">{patient.Name}</td>
                   <td className="tBodyStyle">{patient.Age}</td>
                   <td className="tBodyStyle">{patient.Gender}</td>
-                  <td className="tBodyStyle">{patient.Msm}</td>
+                  <td className="tBodyStyle">{patient.MSM}</td>
                   <td className="tBodyStyle">{patient.Duration}</td>
                   <td className="tBodyStyle">{patient.Severity}</td>
                   <td className="tBodyStyle">{patient.TRD}</td>

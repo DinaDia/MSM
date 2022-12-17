@@ -8,7 +8,7 @@ import EditPersonalInfo from './components/Edit/EditPersonalInfo';
 import InitialInfo from './components/Questions/InitialInfo';
 import InitialQuestion from './components/Questions/InitialQuestion';
 import MSMQuestions from './components/Questions/MSMQuestions';
-import AddInfo from './components/AddInfo';
+import AddInfo from './components/Questions/AddInfo';
 import Questions from './components/Questions/Questions';
 import EditOptions from './components/Edit/EditOptions';
 import UpdateMedicalInfo from './components/Edit/UpdateMedicalInfo';

@@ -53,7 +53,7 @@ const EditInfo = () => {
              <input className='infoInputStyle' type="text"
              required
              value={Name}
-             onChange={(e)=>setName(e.target.value)}  />
+             onChange={(e)=>setName(...Name, e.target.value)}  />
 
              <label>Age</label>
              <input className='infoInputStyle' type="text"

@@ -270,10 +270,10 @@
 .formStyle{
     display: block;
     margin:0 auto;
-    margin-top: 50px;
+    margin-top: 20px;
     background: #9FE6C9;
     padding: 20px 10px 10px 10px;
-    max-width: 300px;
+    max-width: 350px;
 }
 
 
@@ -281,7 +281,7 @@
     background-color: white;
     border:none;
     padding:8px;
-    width: 250px;
+    width: 300px;
     display: block;
     margin : 0 auto;
     margin-top: 10px;
@@ -291,7 +291,7 @@
     background-color: white;
     border:none;
     padding:8px;
-    width: 270px;
+    width: 315px;
     display: block;
     margin : 0 auto;
     margin-bottom: 5px;
@@ -318,11 +318,19 @@
 .questionDiv{
     
     font-weight: bold;
-    max-width: 700px;
+    max-width: 500px;
     padding: 5px 15px 5px 15px;
     margin: 0 auto;
     margin-top:100px;
     
+}
+.editOptionDiv{
+    font-weight: bold;
+    max-width: 700px;
+    padding: 5px 15px 5px 15px;
+    margin: 0 auto;
+    margin-top:100px;
+       
 }
 .confirmation{
     

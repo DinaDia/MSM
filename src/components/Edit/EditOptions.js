@@ -2,6 +2,7 @@ import DataCollection from "../../DataCollection";
 import Header from '../Header';
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 const EditOptions = () => {
 
     
@@ -9,7 +10,6 @@ const EditOptions = () => {
   const {data:patient, error}=DataCollection('http://localhost:8000/patients/'+id);
   const navigate=useNavigate();
 
-  
   
 
   return (
@@ -23,7 +23,7 @@ const EditOptions = () => {
       {
         <div>
         <Header/>
-        <div className="questionDiv">
+        <div className="editOptionDiv">
             <div className="confirmation">
                 <p className="questionText">Select the patient information you would like to update</p>
                 <br/>

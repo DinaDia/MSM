@@ -1,7 +1,6 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 // import {useState, useEffect} from 'react';
-// import Login from './components/Login';
 import Homepage from  './components/Homepage';
 import PatientInfo from './components/PatientInfo';
 import EditPersonalInfo from './components/Edit/EditPersonalInfo';
@@ -12,13 +11,13 @@ import AddInfo from './components/Questions/AddInfo';
 import Questions from './components/Questions/Questions';
 import EditOptions from './components/Edit/EditOptions';
 import UpdateMedicalInfo from './components/Edit/UpdateMedicalInfo';
+import AddData from './components/Questions/AddData';
 // import { ClipLoader } from 'react-spinners';
 
 function App() {
   return (
         <BrowserRouter>
         <Routes>
-          {/* <Route exact path="/" element={<Login/>}/> */}
           <Route exact path="/" element={<Homepage/>}/>
           <Route exact path="/PatientInfo/:id" element={<PatientInfo/>}/>
           <Route exact path="/EditPersonalInfo/:id" element={<EditPersonalInfo/>}/>
@@ -29,7 +28,7 @@ function App() {
           <Route exact path="/AddInfo" element={<AddInfo/>}/>
           <Route exact path="/EditOptions/:id" element={<EditOptions/>}/>
           <Route exact path="/UpdateMedicalInfo/:id" element={<UpdateMedicalInfo/>}/>
-          
+          <Route exact path="AddData" element={<AddData/>}/>
         </Routes>
         </BrowserRouter>
 

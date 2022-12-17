@@ -134,8 +134,8 @@
 
 
 .tableStyle{
-    margin-top: 75px;
-    margin-left: 50px;
+    margin-top: 50px;
+    margin-left: 25px;
     border-collapse: collapse;
     
 }
@@ -272,8 +272,8 @@
     margin:0 auto;
     margin-top: 20px;
     background: #9FE6C9;
-    padding: 20px 10px 10px 10px;
-    max-width: 350px;
+    padding: 20px 20px 5px 20px;
+    max-width: 380px;
 }
 
 
@@ -281,21 +281,52 @@
     background-color: white;
     border:none;
     padding:8px;
-    width: 300px;
+    width: 350px;
     display: block;
     margin : 0 auto;
     margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 7px;
+    height: 20px;
+    outline: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 15px;
+    color:rgb(139, 139, 139);
+
+
 }
-.selectStyle{
+.dateStyle{
     background-color: white;
     border:none;
     padding:8px;
-    width: 315px;
+    width: 350px;
+    height: 35px;
     display: block;
     margin : 0 auto;
-    margin-bottom: 5px;
+    margin-bottom: 7px;
     margin-top: 10px;
+    height: 20px;
+    outline: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 15px;
+    color:rgb(139, 139, 139);
+}
+
+.multiSelectStyle{
+    background-color: white;
+    outline: 1px solid #ccc;
+    border:none;
+    width: 366px;
+    display: block;
+    margin : 0 auto;
+    margin-bottom: 7px;
+    margin-top: 10px;
+    color:rgb(139, 139, 139);
+    height: 35px;
+    border-radius: 2px;
+    font-size: 15px;
+    padding:5px;
+
+
 }
 .smallerBoxButtonsDiv{
     margin-top: 25px;

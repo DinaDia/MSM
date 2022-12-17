@@ -225,7 +225,7 @@ const MSMQuestions = ({secondSubmit}) => {
 
               <button className='rightButtons'
               onClick={handleSubmit}>
-                Complete</button>
+                Next</button>
           </div>
             
             </div>

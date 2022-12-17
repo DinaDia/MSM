@@ -58,7 +58,7 @@ const Details = ({data:Patients}) => {
                   </td>
                   <td className="tBodyStyle">
                       <button className="editButton"
-                      onClick={()=>navigate(`/EditInfo/${patient.id}`)}>Edit
+                      onClick={()=>navigate(`/EditOptions/${patient.id}`)}>Edit
                       </button>
                   </td>
   

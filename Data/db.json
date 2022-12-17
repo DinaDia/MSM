@@ -27,7 +27,47 @@
       "med": 4,
       "aug": "Yes",
       "ect": "Yes",
-      "lists": ["ABC", "CDE"]
+      "lists": [
+        "ABC",
+        "CDE"
+      ]
+    },
+    {
+      "Name": "dina",
+      "Age": 20,
+      "Gender": "Female",
+      "martialStatus": "Never Married and not cohabiting",
+      "childrenNo": "0",
+      "professionalStatus": "Part Time",
+      "Phone": "969125434",
+      "Duration": "Subsyndromal",
+      "Severity": 2,
+      "TRD": "No",
+      "Level": "Not identified",
+      "aug": "No",
+      "ect": "No",
+      "medNo": "122",
+      "med": "Med2",
+      "id": 7
+    },
+    {
+      "Name": "Dina   Muktar",
+      "Age": 20,
+      "Gender": "Male",
+      "martialStatus": "Separated",
+      "childrenNo": "234",
+      "professionalStatus": "Retired",
+      "Phone": "969125434",
+      "MSM": "Between a year and two",
+      "Duration": "Severe with psychosis",
+      "Severity": 11,
+      "TRD": "Yes",
+      "Level": "Level 2",
+      "aug": "Yes",
+      "ect": "Yes",
+      "medNo": "12345",
+      "med": "Med1",
+      "id": 8
     }
   ]
 }

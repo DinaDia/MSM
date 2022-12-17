@@ -1,13 +1,19 @@
 import Header from '../Header';
 import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import DataCollection from '../../DataCollection';
 
 
 
 
 const UpdateMedicalInfo = () => {
-    const {data: patient, error}=DataCollection('http://localhost:8000/patients');
+
+    const [medNo, setMedNo]=useState('');
+    const [med, setMed]=useState();
+
+    const { error}=DataCollection('http://localhost:8000/patients');
+
+
     const navigate=useNavigate();
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -26,12 +32,38 @@ const UpdateMedicalInfo = () => {
             <div>
             <Header/>
             <div>
-                <h2 className='headingTag'>Update patient information</h2>
+                <h2 className='headingTag'>Update patient record</h2>
      
                 <form className='formStyle' onSubmit={handleSubmit}>
-                  <label>MSM score</label>
+                  <label>Number of medications taken at least for 4 weeks</label>
                   <input className='infoInputStyle' type="text"
-                  min="1" max="15"/>
+                  placeholder='Number of medications'
+                  required
+                  value={medNo}
+                  onChange={(e)=>setMedNo(e.target.value)}  />
+                  
+                  <label>Medicines taken</label>
+                  <select className='multiSelectStyle'
+                  isMulti
+                  required
+                  placeholder="select Medicines"
+                  value={med}
+                  onChange={(e)=>setMed(e.target.value)}
+                  >
+                    <option hidden>Select Medication</option>
+                    <option value="Med1">Med1</option>
+                    <option value="Med2">Med2</option>
+                    <option value="Med3">Med3</option>
+                    <option value="Med4">Med4</option>
+                    
+                  </select>
+                  
+                <div className='smallerBoxButtonsDiv'>
+                  <button className='backButtons'
+                  onClick={()=>navigate('/Questions')}>
+                    Cancel</button>
+                    <button className='rightButtons'>
+                      Save</button></div>
 
                 </form>
             </div>

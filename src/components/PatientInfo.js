@@ -52,6 +52,21 @@ const PatientInfo = () => {
               {patient.Gender}
             </span>
           </p>
+          <p>Martial status: 
+            <span className='patientInfoText'>
+              {patient.martialStatus}
+            </span>
+          </p>
+          <p>Number of children: 
+            <span className='patientInfoText'>
+              {patient.childrenNo}
+            </span>
+          </p>
+          <p>professionalStatus: 
+            <span className='patientInfoText'>
+              {patient.professionalStatus}
+            </span>
+          </p>
           <p>Duration of depressive episode: 
             <span className='patientInfoText'>
               {patient.Duration}
@@ -74,12 +89,12 @@ const PatientInfo = () => {
           </p>
           <p>Number of medication taken: 
             <span className='patientInfoText'>
-              {patient.med}
+              {patient.medNo}
             </span>
           </p>
           <div>List of medication taken: 
             <span className='patientInfoText'>
-
+              {patient.med}
             </span>
           </div>
           <p>Augmentation: 

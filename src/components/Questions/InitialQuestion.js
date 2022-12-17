@@ -21,7 +21,7 @@ const InitialQuestion = ({firstSubmit}) => {
             <div className="confirmation">
                 <p className="questionText">Has the diagnosis of depression been confirmed?</p>
                 <button className="answerButtons"
-                id='1'>Yes
+                onClick={()=>navigate('/AddData')}>Yes
                 </button>
             </div>
 

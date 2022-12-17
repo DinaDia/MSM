@@ -14,17 +14,14 @@ const InitialInfo = ({onSubmit}) => {
     const [Phone, setPhone]=useState('');
     const [martialStatus, setMartialStatus]=useState('');
     const [childrenNo, setChildrenNo]=useState('');
-    const [yearsOfEducation, setYearsOfEducation]=useState('');
     const [professionalStatus, setProfessionalStatus]=useState('');
-    const [paidMonth, setPaidMonth]=useState('');
-
+    
     
     const navigate=useNavigate();
 
-
     const handleSubmit=(e)=>{
       e.preventDefault();
-      onSubmit(Name, DOB, Gender, Phone);
+      onSubmit(Name, DOB, Gender, Phone, martialStatus, childrenNo, professionalStatus);
       
   }
 
@@ -54,24 +51,23 @@ const InitialInfo = ({onSubmit}) => {
              onChange={(e)=>setName(e.target.value)}  />
 
              <label>Age</label>
-             <input className='infoInputStyle' type="date"
+             <input className='dateStyle' type="date"
              placeholder="dd/mm/yyyy" 
              required
              value={DOB}
              onChange={(e)=>setDOB(e.target.value)}  />
              
              <label>Gender</label>
-             <select className='selectStyle' type="text"
-             placeholder='Gender'
+             <select className='multiSelectStyle'
              required
-             value={Gender}
-             onChange={(e)=>setGender(e.target.value)}>
-               
-               <option hidden>Select Gender</option>
-               <option value="Female">Female</option>
-               <option value="Male">Male</option>
+             placeholder="Select Gender"
+             value={Gender} 
+             onChange={(e)=>setGender(e.target.value)}
+             >
+                  <option hidden>Select Gender</option>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
              </select>
-
              
              <label>Phone Number</label>
              <input className='infoInputStyle' type="tel"
@@ -81,19 +77,18 @@ const InitialInfo = ({onSubmit}) => {
              onChange={(e)=>setPhone(e.target.value)}  />
 
             <label>Martial Status</label>
-             <select className='selectStyle' type="text"
+            <select className='multiSelectStyle'
              required
-             value={martialStatus}
+             placeholder="Select Martial status"
+             value={martialStatus} 
              onChange={(e)=>setMartialStatus(e.target.value)}>
-               
-               <option hidden>Select Martial Status</option>
-               <option value="Married">Married</option>
-               <option value="Cohabiting">Cohabiting</option>
-               <option value="Separated">Separated</option>
-               <option value="Divorced">Divorced</option>
-               <option value="Widowed">Widowed</option>
-               <option value="Never Married and not cohabiting">Never Married and not cohabiting</option>
-
+                <option hidden>Select Martial Status</option>
+                <option value="Married">Married</option>
+                <option value="Cohabiting">Cohabiting</option>
+                <option value="Separated">Separated</option>
+                <option value="Divorced">Separated</option>
+                <option value="Widowed">Widowed</option>
+                <option value="Never Married and not cohabiting">Never Married and not cohabiting</option>
              </select>
 
              
@@ -102,42 +97,22 @@ const InitialInfo = ({onSubmit}) => {
              placeholder='Children Number'
              required
              value={childrenNo}
-             onChange={(e)=>setChildrenNo(e.target.value)}  />  
-
-             
-            <label>Years of formal education</label>
-             <input className='infoInputStyle' type="text"
-             placeholder='Years of formal education'
-             required
-             value={yearsOfEducation}
-             onChange={(e)=>setYearsOfEducation(e.target.value)}  />
-             
-             
+             onChange={(e)=>setChildrenNo(e.target.value)}  />           
              
              <label>Professional Status</label>
-             <select className='selectStyle' type="text"
+             <select className='multiSelectStyle'
              required
-             value={professionalStatus}
+             placeholder="Select Professional status"
+             value={professionalStatus} 
              onChange={(e)=>setProfessionalStatus(e.target.value)}>
-               
-               <option hidden>Select Professional Status</option>
-               <option value="Full time">Full time</option>
-               <option value="Part Time">Part Time</option>
-               <option value="Household duties">Household duties</option>
-               <option value="Unemployed">Unemployed</option>
-               <option value="Retired">Retired</option>
-               <option value="Sheltered work">Sheltered work</option>
-               <option value="Primarily A student">Primarily A student</option>
-
+                <option hidden>Select Professional Status</option>
+                <option value="Full time">Full time</option>
+                <option value="Part Time">Part Time</option>
+                <option value="Household duties">Household duties</option>
+                <option value="Retired">Retired</option>
+                <option value="Sheltered work">Sheltered work</option>
+                <option value="Primarily a student">Primarily a student</option>
              </select>
-
-
-             
-            <label>Number of months paid employment in the past year</label>
-             <input className='infoInputStyle' type="text"
-             required
-             value={paidMonth}
-             onChange={(e)=>setPaidMonth(e.target.value)}  />
 
              <div className='smallerBoxButtonsDiv'>
                <button className='backButtons'

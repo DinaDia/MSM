@@ -2,7 +2,7 @@ import DataCollection from "../../DataCollection";
 import Header from '../Header';
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+
 const EditOptions = () => {
 
     

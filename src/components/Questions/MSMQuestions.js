@@ -212,8 +212,8 @@ const MSMQuestions = ({secondSubmit}) => {
         
         {result ? (
             <div className="MSMResult">
-            <h2>{finalResult}</h2>
-            <p>{trdInfo} and has {Severity.toLowerCase()} symptoms  that has lasted for {Duration.toLowerCase()}</p>
+            <h2 style={{marginLeft: "50px"}}>{finalResult}</h2>
+            <p>{trdInfo} and has {Severity.toLowerCase()} symptoms  that have lasted for {Duration.toLowerCase()}</p>
             
 
 

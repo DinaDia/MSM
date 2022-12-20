@@ -37,10 +37,10 @@ const Details = ({data:Patients}) => {
                 </tr>
               </thead>
   
-              {Patients.map((patient)=>(
+              {Patients.map((patient, id)=>(
               
               <tbody>
-                <tr key='{patient.id}'>
+                <tr key={id}>
   
                   <td className="tBodyStyle">{patient.id}</td>
                   <td className="tBodyStyle">{patient.Name}</td>

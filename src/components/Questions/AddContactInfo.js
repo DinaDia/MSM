@@ -1,12 +1,9 @@
 import Header from '../Header';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import DataCollection from '../../DataCollection';
 
 
 const InitialInfo = ({onSubmit}) => {
-
-    const {error}=DataCollection('http://localhost:8000/patients');
     
     const [Name, setName]=useState('');
     const [DOB, setDOB]=useState('');
@@ -15,7 +12,7 @@ const InitialInfo = ({onSubmit}) => {
     const [martialStatus, setMartialStatus]=useState('');
     const [childrenNo, setChildrenNo]=useState('');
     const [professionalStatus, setProfessionalStatus]=useState('');
-    
+
     
     const navigate=useNavigate();
 
@@ -25,41 +22,29 @@ const InitialInfo = ({onSubmit}) => {
       
   }
 
-    
-
   return  (
     <div>
-      {
-      error && 
-        <div className="errorMessageStyle">
-          Error has occurred, please try again
-        </div>
-      }
-     
-     {
-       <div>
        <Header/>
-       <div>
            <h2 className='headingTag'>New patient</h2>
 
            <form className='formStyle' onSubmit={handleSubmit}>
              <label>Full Name</label>
              <input className='infoInputStyle' type="text"
              placeholder='Full Name'
-             required
+             
              value={Name}
              onChange={(e)=>setName(e.target.value)}  />
 
-             <label>Age</label>
+             <label>Date of birth</label>
              <input className='dateStyle' type="date"
              placeholder="dd/mm/yyyy" 
-             required
+             
              value={DOB}
              onChange={(e)=>setDOB(e.target.value)}  />
              
              <label>Gender</label>
              <select className='multiSelectStyle'
-             required
+             
              placeholder="Select Gender"
              value={Gender} 
              onChange={(e)=>setGender(e.target.value)}
@@ -72,13 +57,13 @@ const InitialInfo = ({onSubmit}) => {
              <label>Phone Number</label>
              <input className='infoInputStyle' type="tel"
              placeholder='Phone Number'
-             required
+             
              value={Phone}
              onChange={(e)=>setPhone(e.target.value)}  />
 
             <label>Martial Status</label>
             <select className='multiSelectStyle'
-             required
+             
              placeholder="Select Martial status"
              value={martialStatus} 
              onChange={(e)=>setMartialStatus(e.target.value)}>
@@ -95,13 +80,13 @@ const InitialInfo = ({onSubmit}) => {
             <label>Number of children born alive</label>
              <input className='infoInputStyle' type="text"
              placeholder='Children Number'
-             required
+             
              value={childrenNo}
              onChange={(e)=>setChildrenNo(e.target.value)}  />           
              
              <label>Professional Status</label>
              <select className='multiSelectStyle'
-             required
+             
              placeholder="Select Professional status"
              value={professionalStatus} 
              onChange={(e)=>setProfessionalStatus(e.target.value)}>
@@ -124,11 +109,9 @@ const InitialInfo = ({onSubmit}) => {
 
            </form>
 
-       </div>
        
-   </div>
   
-     }
+     
     </div> 
   )
 }

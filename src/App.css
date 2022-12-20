@@ -134,10 +134,9 @@
 
 
 .tableStyle{
-    margin-top: 50px;
-    margin-left: 25px;
+    margin: 0 auto;
+    margin-top: 75px;
     border-collapse: collapse;
-    
 }
 
 .tHeadStyle{
@@ -221,8 +220,6 @@
 }
 
 .patientInfo{
-    
-    
     margin: 0 auto;
     margin-top:50px;
     font-weight: bold;
@@ -230,10 +227,36 @@
     background-color: #EBFEF5;
     padding: 25px 15px 5px 70px;
 }
+
+.patientInfoDiv{
+    max-width: 970px;
+    margin: 0 auto;
+    margin-top: 40px; 
+}
+
+.patientInfoTextStyle{
+    color:rgb(139, 139, 139);
+    margin: 0;
+    padding: 0;
+}
+.dateTextStyle{
+    color:rgb(139, 139, 139);
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+    font-size: 12px;
+}
+.individualPatientInfo{
+    
+    max-width: 930px;
+    margin: 0 auto;
+}
 .patientInfoText{
     font-weight: 400;
     margin-left: 10px;
 }
+
+
 
 .rightButtons{
     background-color: #2E4774;
@@ -329,21 +352,29 @@
 
 }
 .smallerBoxButtonsDiv{
+    margin: 0 auto;
     margin-top: 25px;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0px 20px 15px 20px;   
+
 }
 .endButtonDiv{
-    
-    margin: 0px 150px 0px 150px;
-    margin-top: 25px;
+    width: 650px;
+    margin: 0 auto;
+    margin-top: 5px;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0px 20px 15px 20px;
- 
+    padding:20px;
+}
+
+.MSMQuestions{
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top:50px;
+    font-weight: bold;
+    padding: 25px;
 }
 
 .questionDiv{
@@ -352,7 +383,6 @@
     max-width: 500px;
     padding: 5px 15px 5px 15px;
     margin: 0 auto;
-    margin-top:100px;
     
 }
 .editOptionDiv{

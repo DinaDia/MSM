@@ -15,6 +15,7 @@ const UpdateMedicalInfo = () => {
 
 
     const navigate=useNavigate();
+    
     const handleSubmit=(e)=>{
         e.preventDefault();
         
@@ -60,7 +61,7 @@ const UpdateMedicalInfo = () => {
                   
                 <div className='smallerBoxButtonsDiv'>
                   <button className='backButtons'
-                  onClick={()=>navigate('/Questions')}>
+                  onClick={()=>navigate('/')}>
                     Cancel</button>
                     <button className='rightButtons'>
                       Save</button></div>

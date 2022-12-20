@@ -10,6 +10,9 @@ const PatientInfo = () => {
   const {data:patient, error}=DataCollection('http://localhost:8000/patients/'+id);
   const navigate=useNavigate();
 
+  
+  
+
   const handleClick=(id)=>{
     if(window.confirm("Confirm you want to delete this entry")){
     
@@ -20,7 +23,14 @@ const PatientInfo = () => {
       navigate('/');
     })   
   }
+
+
+  // const registeredDate=patient.currentTime.getFull
+
+
 }
+
+
 
 
   return (
@@ -37,16 +47,21 @@ const PatientInfo = () => {
             <h2 className='headingTag'>Patient record</h2>
       
           <article className='patientInfo'>
-          <p>Full name:&nbsp;
+          <p>Full name:
             <span className='patientInfoText'>
                {patient.Name} 
             </span>
           </p>
-          <p>Age: 
+          <p>Date of birth: 
             <span className='patientInfoText'>
-              {patient.Age} 
+              {patient.DOB} 
             </span>
           </p>
+          {/* <p>Age: 
+            <span className='patientInfoText'>
+              {}
+            </span>
+          </p> */}
           <p>Gender: 
             <span className='patientInfoText'>
               {patient.Gender}
@@ -62,50 +77,61 @@ const PatientInfo = () => {
               {patient.childrenNo}
             </span>
           </p>
-          <p>professionalStatus: 
+          <p>professional status: 
             <span className='patientInfoText'>
               {patient.professionalStatus}
             </span>
           </p>
-          <p>Duration of depressive episode: 
-            <span className='patientInfoText'>
-              {patient.Duration}
-            </span>
-          </p>
-          <p>Symptom severity: 
-            <span className='patientInfoText'>
-              {patient.Severity}
-            </span>
-          </p>
-          <p>Treatment resistance: 
-            <span className='patientInfoText'>
-              {patient.TRD}
-            </span>
-          </p>
-          <p>Treatment failure level: 
-            <span className='patientInfoText'>
-              {patient.Level}
-            </span>
-          </p>
-          <p>Number of medication taken: 
-            <span className='patientInfoText'>
-              {patient.medNo}
-            </span>
-          </p>
-          <div>List of medication taken: 
-            <span className='patientInfoText'>
-              {patient.med}
-            </span>
+          
+          <div className='patientInfoDiv'>
+            <div>
+              <p className='patientInfoTextStyle'>Baseline</p>
+              <p className='dateTextStyle'>{Date(patient.currentTime).slice(4,16)}</p>
+            </div>
+            <div className='individualPatientInfo'>  
+            <p>Duration of depressive episode: 
+              <span className='patientInfoText'>
+                {patient.Duration}
+              </span>
+            </p>
+            <p>Symptom severity: 
+              <span className='patientInfoText'>
+                {patient.Severity}
+              </span>
+            </p>
+            <p>Treatment resistance: 
+              <span className='patientInfoText'>
+                {patient.TRD}
+              </span>
+            </p>
+            <p>Treatment failure level: 
+              <span className='patientInfoText'>
+                {patient.Level}
+              </span>
+            </p>
+            <p>Number of medication taken: 
+              <span className='patientInfoText'>
+                {patient.med}
+              </span>
+            </p>
+            <div>List of medication taken: 
+              <span className='patientInfoText'>
+                {patient.medNo}
+              </span>
+            </div>
+            <p>Augmentation: 
+              <span className='patientInfoText'>
+                {patient.aug} </span>
+            </p>
+            <p>ECT:
+              <span className='patientInfoText'>
+                {patient.ect}</span>
+            </p>
           </div>
-          <p>Augmentation: 
-            <span className='patientInfoText'>
-              {patient.aug} </span>
-          </p>
-          <p>ECT:
-            <span className='patientInfoText'>
-              {patient.ect}</span>
-          </p>
-
+          
+          
+            
+          </div>
           <div className='smallerBoxButtonsDiv'>
               <button className="deleteButton"
               onClick={handleClick}>
@@ -114,7 +140,7 @@ const PatientInfo = () => {
 
               <button className='rightButtons'
               onClick={()=>navigate(`/EditOptions/${patient.id}`)}>
-                Edit Options</button>
+                Edit options</button>
           </div>
         </article>
         

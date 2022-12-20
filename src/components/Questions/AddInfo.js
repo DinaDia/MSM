@@ -7,6 +7,8 @@ const AddInfo = ({finalSubmit}) => {
 
   const [medNo, setMedNo]=useState('');
   const [med, setMed]=useState();
+  const [currentMed, setCurrentMed]=useState();
+
   
   const {error}=DataCollection('http://localhost:8000/patients');
 
@@ -33,7 +35,7 @@ const AddInfo = ({finalSubmit}) => {
 
   const handleSubmit=(e)=>{
     e.preventDefault();
-    finalSubmit(medNo, med)
+    finalSubmit(medNo, med,currentMed)
   };
 
   // const medselection=(e)=>{
@@ -57,16 +59,15 @@ const AddInfo = ({finalSubmit}) => {
            <h2 className='headingTag'>Medication Information</h2>
             <form className='formStyle' onSubmit={handleSubmit}>
 
-              <label>Number of medications taken at least for 4 weeks</label>
+              <label>Number of medications taken</label>
               <input className='infoInputStyle' type="text"
              placeholder='Number of medications'
              required
              value={medNo}
              onChange={(e)=>setMedNo(e.target.value)}  />
 
-             <label>Medicines taken</label>
+             <label>Medicines taken previously</label>
              <select className='multiSelectStyle'
-              isMulti
               required
               placeholder="select Medicines"
               value={med}
@@ -80,9 +81,25 @@ const AddInfo = ({finalSubmit}) => {
 
              </select>
              
+             <label>Currently prescribed medication</label>
+             <select className='multiSelectStyle'
+              placeholder="select Medicines"
+              value={currentMed}
+              onChange={(e)=>setCurrentMed(e.target.value)}
+              >
+                <option hidden>Select Medication</option>
+                <option value="Med1">Med1</option>
+                <option value="Med2">Med2</option>
+                <option value="Med3">Med3</option>
+                <option value="Med4">Med4</option>
+
+             </select>
+
+             <p>N.B. All of the medications listed here should be taken for 
+              adequate amount of time and dose respective to the medicine type</p>
              <div className='smallerBoxButtonsDiv'>
-               <button className='backButtons'
-               onClick={()=>navigate('/Questions')}>
+              <button className='backButtons'
+               onClick={()=>navigate('/')}>
                    Cancel</button>
                <button className='rightButtons'>
                    Save</button>

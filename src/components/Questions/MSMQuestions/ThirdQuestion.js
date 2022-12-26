@@ -27,7 +27,6 @@ const ThirdQuestion = ({thirdSubmit, thirdBack}) => {
     const handleSubmit=(e)=>{
         e.preventDefault();
         thirdSubmit(thirdAnswer, thirdId, thirdValue);
-        console.log(thirdAnswer, thirdId, thirdValue);
 
     };
 

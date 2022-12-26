@@ -1,11 +1,14 @@
 import { useState } from "react";
 import AddContactInfo from "./AddContactInfo";
+import Confirmation from "./MSMQuestions/Confirmation";
 import FirstQuestion from "./MSMQuestions/FirstQuestion";
 import FourthQuestion from "./MSMQuestions/FourthQuestion";
+import Result from "./Result";
 import SecondQuestion from "./MSMQuestions/SecondQuestion";
 import ThirdQuestion from "./MSMQuestions/ThirdQuestion";
 
 const Questions = () => {
+
 
   const [Name, setName]=useState('');
   const [DOB, setDOB]=useState('');
@@ -18,21 +21,25 @@ const Questions = () => {
 
   const [firstValue, setFirstValue]=useState('');
   const [firstAnswer, setFirstAnswer]=useState('');
-  const [firstId, setFirstId]=useState('');
 
   const [secondAnswer, setSecondAnswer]=useState('')
   const [secondValue, setSecondValue]=useState('');
-  const [secondId, setSecondId]=useState('');
 
 
   const [thirdValue, setThirdValue]=useState('');
   const [thirdAnswer, setThirdAnswer]=useState('');
-  const [thirdId, setThirdId]=useState('');  
+  const [thirdId, setThirdId]=useState(''); 
   
-  const [medNo, setMedNo]=useState('');
-  const [med, setMed]=useState();
-  const [currentMed, setCurrentMed]=useState();
   
+  
+  const [treatmentSection, setTreatmentSection]=useState([]);
+  const [treatmentClass, setTreatmentClass]=useState([]);
+  const [medication, setMedication]=useState([]);
+  const [tolerability, setTolerability]=useState([]);
+  const [adherence, setAdherence]=useState([]);
+  const [response, setResponse]=useState([]);
+  const [dosage, setDosage]=useState([]);
+
   const [order, setOrder]=useState(0);
     
   const orderChanges=()=>{
@@ -49,7 +56,15 @@ const Questions = () => {
       return <ThirdQuestion thirdSubmit={getThirdData} thirdBack={thirdBack}/>
     }
     else if(order===4){
-      return <FourthQuestion fourthSubmit={getFourthData} fourthBack={fourthBack}/>
+      return <FourthQuestion fourthSubmit={getFourthData} fourthBack={fourthBack} addMore={addTreatment}/>
+    }
+    else if(order===5){
+      return <Confirmation finalSubmit={showResult}/>
+    }
+    else if(order===6){
+      return <Result firstAnswer={firstAnswer} firstValue={firstValue} secondAnswer={secondAnswer} secondValue={secondValue}
+      thirdAnswer={thirdAnswer} thirdValue={thirdValue} treatmentSection={treatmentSection}
+      treatmentClass={treatmentClass} medication={medication}/>
     }
 
   }
@@ -67,21 +82,18 @@ const Questions = () => {
     setOrder(1);
   }
   
-  const getFirstData=(firstAnswer, firstId, firstValue)=>{
+  const getFirstData=(firstAnswer, firstValue)=>{
     
     setFirstAnswer(firstAnswer);
-    setFirstId(firstId);
     setFirstValue(firstValue);
 
     setOrder(2);
             
   };
 
-  const getSecondData=(secondAnswer, secondId, secondValue)=>{
+  const getSecondData=(secondAnswer, secondValue)=>{
     setSecondAnswer(secondAnswer);
     setSecondValue(secondValue);
-    setSecondId(secondId);
-
     setOrder(3);
   }
 
@@ -90,16 +102,63 @@ const Questions = () => {
     setThirdValue(thirdValue);
     setThirdId(thirdId);
 
-    setOrder(4);
-  }
+    if(thirdId === 100){
+      setOrder(6);
+    }
+    else {
+      setOrder(4);
+    }
 
-  const getFourthData=(medNo, med, currentMed)=>{
-    setMedNo(medNo);
-    setMed(med);
-    setCurrentMed(currentMed);
-
-    setOrder(5);
   };
+
+
+  const addTreatment=(selectedSection, selectedClass, selectedMed, currentTolerability, 
+    currentAdherence, currentResponse, currentDosage)=>{
+
+
+    setTreatmentSection([...treatmentSection, selectedSection]);
+    setTreatmentClass([...treatmentClass, selectedClass]);
+    setMedication([...medication, selectedMed]);
+    setTolerability([...tolerability, currentTolerability]);
+    setAdherence([...adherence, currentAdherence]);
+    setResponse([...response, currentResponse]);
+    setDosage([...dosage, currentDosage]);
+
+  };
+
+  const getFourthData=(selectedSection, selectedClass, selectedMed, currentTolerability, 
+    currentAdherence, currentResponse, currentDosage,)=>{
+    
+    const currentTime=new Date();
+    setTreatmentSection([...treatmentSection, selectedSection]);
+    setTreatmentClass([...treatmentClass, selectedClass]);
+    setMedication([...medication, selectedMed]);
+    setTolerability([...tolerability, currentTolerability]);
+    setAdherence([...adherence, currentAdherence]);
+    setResponse([...response, currentResponse]);
+    setDosage([...dosage, currentDosage]);
+
+
+    const Patient={ Name, DOB, Gender, Phone, martialStatus, childrenNo, professionalStatus,
+      currentTime, firstAnswer, secondAnswer, thirdAnswer, treatmentSection, treatmentClass, medication, 
+      tolerability, adherence, response, dosage
+    };
+          fetch('http://localhost:8000/patients', {
+          method: 'POST',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(Patient)
+          })
+          .then(setOrder(5))
+  };
+
+  const showResult=()=>{
+    setOrder(6);
+  };
+
+
+
+
+
 
   
   const firstBack=()=>{

@@ -47,9 +47,9 @@ const Details = ({data:Patients}) => {
                   <td className="tBodyStyle">{patient.Age}</td>
                   <td className="tBodyStyle">{patient.Gender}</td>
                   <td className="tBodyStyle">{patient.MSM}</td>
-                  <td className="tBodyStyle">{patient.Duration}</td>
-                  <td className="tBodyStyle">{patient.Severity}</td>
-                  <td className="tBodyStyle">{patient.TRD}</td>
+                  <td className="tBodyStyle">{patient.firstAnswer}</td>
+                  <td className="tBodyStyle">{patient.secondAnswer}</td>
+                  <td className="tBodyStyle">{patient.thirdAnswer}</td>
                   <td className="tBodyStyle">
   
                       <button className="viewButton"

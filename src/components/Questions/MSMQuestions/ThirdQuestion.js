@@ -5,7 +5,6 @@ import Header from "../../Header";
 const ThirdQuestion = ({thirdSubmit, thirdBack}) => {
     
 
-    const [thirdValue, setThirdValue]=useState('');
     const [thirdAnswer, setThirdAnswer]=useState('');
     const [thirdId, setThirdId]=useState('');
 
@@ -19,14 +18,13 @@ const ThirdQuestion = ({thirdSubmit, thirdBack}) => {
     };
 
 
-    const OptionClicked=(value, id, answer)=>{
+    const OptionClicked=(id, answer)=>{
         setThirdAnswer(answer);
-        setThirdValue(value);
         setThirdId(id);
  };
     const handleSubmit=(e)=>{
         e.preventDefault();
-        thirdSubmit(thirdAnswer, thirdId, thirdValue);
+        thirdSubmit(thirdAnswer, thirdId);
 
     };
 
@@ -45,7 +43,7 @@ const ThirdQuestion = ({thirdSubmit, thirdBack}) => {
             {msm3.options.map((option)=>{
                 return(
                     <li key={option.id}
-                    onClick={()=> OptionClicked(option.value, option.id, option.answer)}
+                    onClick={()=> OptionClicked(option.id, option.answer)}
                     >
                         {option.answer}
                     </li>

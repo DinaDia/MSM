@@ -5,7 +5,6 @@ const SecondQuestion = ({secondSubmit, secondBack}) => {
   
     const [secondAnswer, setSecondAnswer]=useState('')
     const [secondValue, setSecondValue]=useState('');
-    const [secondId, setSecondId]=useState('');
 
 
     const msm2={
@@ -19,15 +18,14 @@ const SecondQuestion = ({secondSubmit, secondBack}) => {
         ],
     };
 
-    const OptionClicked=(value, id, answer)=>{
+    const OptionClicked=(value, answer)=>{
         setSecondAnswer(answer);
         setSecondValue(value);
-        setSecondId(id);
  }
 
  const handleSubmit=(e)=>{
     e.preventDefault();
-    secondSubmit(secondAnswer, secondId, secondValue);
+    secondSubmit(secondAnswer, secondValue);
    };
 
    const GoBackFun=(e)=>{
@@ -47,7 +45,7 @@ const SecondQuestion = ({secondSubmit, secondBack}) => {
             {msm2.options.map((option)=>{
                 return(
                     <li key={option.id}
-                    onClick={()=> OptionClicked(option.value, option.id, option.answer)}
+                    onClick={()=> OptionClicked(option.value, option.answer)}
                     >
                         {option.answer}
                     </li>

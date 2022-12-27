@@ -5,7 +5,6 @@ import Homepage from  './components/Homepage';
 import PatientInfo from './components/PatientInfo';
 import EditPersonalInfo from './components/Edit/EditPersonalInfo';
 import AddContactInfo from './components/Questions/AddContactInfo';
-import MSMQuestions from './components/Questions/MSMQuestions';
 import AddInfo from './components/Questions/AddInfo';
 import Questions from './components/Questions/Questions';
 import EditOptions from './components/Edit/EditOptions';
@@ -24,7 +23,6 @@ function App() {
           <Route exact path="/PatientInfo/:id" element={<PatientInfo/>}/>
           <Route exact path="/EditPersonalInfo/:id" element={<EditPersonalInfo/>}/>
           <Route exact path="/AddContactInfo" element={<AddContactInfo/>}/>
-          <Route exact path="/MSMQuestions" element={<MSMQuestions/>}/>
           <Route exact path="/Questions" element={<Questions/>}/>
           <Route exact path="/AddInfo" element={<AddInfo/>}/>
           <Route exact path="/EditOptions/:id" element={<EditOptions/>}/>

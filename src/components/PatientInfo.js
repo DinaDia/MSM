@@ -47,6 +47,7 @@ const PatientInfo = () => {
             <h2 className='headingTag'>Patient record</h2>
       
           <article className='patientInfo'>
+          <p className='patientInfoTextStyle'>Personal information</p>
           <p>Full name:
             <span className='patientInfoText'>
                {patient.Name} 
@@ -91,32 +92,36 @@ const PatientInfo = () => {
             <div className='individualPatientInfo'>  
             <p>Duration of depressive episode: 
               <span className='patientInfoText'>
-                {patient.Duration}
+                {patient.firstAnswer}
               </span>
             </p>
             <p>Symptom severity: 
               <span className='patientInfoText'>
-                {patient.Severity}
+                {patient.secondAnswer}
               </span>
             </p>
             <p>Treatment resistance: 
               <span className='patientInfoText'>
-                {patient.TRD}
+                {patient.thirdAnswer}
               </span>
             </p>
             <p>Treatment failure level: 
               <span className='patientInfoText'>
-                {patient.Level}
+                {patient.level}
               </span>
             </p>
             <p>Number of medication taken: 
               <span className='patientInfoText'>
-                {patient.med}
+                {patient.medication.length}
               </span>
             </p>
             <div>List of medication taken: 
               <span className='patientInfoText'>
-                {patient.medNo}
+                {patient.medication.map((med)=>{
+                  return (
+                      <p>{med}</p>
+                  )
+                })}
               </span>
             </div>
             <p>Augmentation: 

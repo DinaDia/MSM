@@ -7,7 +7,6 @@ const FirstQuestion = ({firstSubmit, firstBack}) => {
 
     const [firstValue, setFirstValue]=useState('');
     const [firstAnswer, setFirstAnswer]=useState('');
-    const [firstId, setFirstId]=useState('');
 
 
     const msm1= {
@@ -20,15 +19,14 @@ const FirstQuestion = ({firstSubmit, firstBack}) => {
     };
 
 
-     const OptionClicked=(value, id, answer)=>{
+     const OptionClicked=(value, answer)=>{
             setFirstAnswer(answer);
             setFirstValue(value);
-            setFirstId(id);
      };
 
      const handleSubmit=(e)=>{
         e.preventDefault();
-        firstSubmit(firstAnswer, firstId, firstValue);
+        firstSubmit(firstAnswer, firstValue);
      };
 
      const GoBackFun=(e)=>{
@@ -48,7 +46,7 @@ const FirstQuestion = ({firstSubmit, firstBack}) => {
             {msm1.options.map((option)=>{
                 return(
                     <li key={option.id}
-                    onClick={()=> OptionClicked(option.value, option.id, option.answer)}
+                    onClick={()=> OptionClicked(option.value, option.answer)}
                     >
                         {option.answer}
                     </li>

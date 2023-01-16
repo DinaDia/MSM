@@ -15,17 +15,19 @@ const EditPersonalInfo =  ({onSubmit}) => {
   const [childrenNo, setChildrenNo]=useState('');
   const [professionalStatus, setProfessionalStatus]=useState('');
   const [MSM, setMSM]=useState('');
-  const [Duration, setDuration]=useState('');
-  const [Severity, setSeverity]=useState('');
-  const [TRD, setTRD]=useState('');
-  const [Level, setLevel]=useState('');
+  const [firstAnswer, setFirstAnswer]=useState('');
+  const [secondAnswer, setSecondAnswer]=useState('');
+  const [thirdAnswer, setThirdAnswer]=useState('');
+  const [treatmentSection, setTreatmentSection]=useState([]);
+  const [treatmentClass, setTreatmentClass]=useState([]);
+  const [medication, setMedication]=useState([]);
+  const [tolerability, setTolerability]=useState([]);
+  const [adherence, setAdherence]=useState([]);
+  const [response, setResponse]=useState([]);
+  const [dosage, setDosage]=useState([]);
+  const [level, setLevel]=useState('');
   const [aug, setAug]=useState('');
-  const [ect, setEct]=useState('');
-  const [med, setMed]=useState('');
-  const [currentMed, setCurrentMed]=useState('');
-  const [medNo, setMedNo]=useState('');
-
-  
+  const [ect, setEct]=useState('');  
   const navigate=useNavigate();
 
 
@@ -41,15 +43,19 @@ const EditPersonalInfo =  ({onSubmit}) => {
       setChildrenNo(resp.childrenNo);
       setProfessionalStatus(resp.professionalStatus);
       setMSM(resp.MSM);
-      setDuration(resp.Duration);
-      setSeverity(resp.Severity);
-      setTRD(resp.TRD);
-      setLevel(resp.Level);
+      setFirstAnswer(resp.firstAnswer);
+      setSecondAnswer(resp.secondAnswer);
+      setThirdAnswer(resp.thirdAnswer);
+      setTreatmentSection(resp.treatmentSection);
+      setTreatmentClass(resp.treatmentClass);
+      setMedication(resp.medication);
+      setTolerability(resp.tolerability);
+      setAdherence(resp.adherence);
+      setResponse(resp.response);
+      setDosage(resp.dosage);
+      setLevel(resp.level);
       setAug(resp.aug);
       setEct(resp.ect);
-      setMed(resp.med);
-      setCurrentMed(resp.currentMed);
-      setMedNo(resp.currentMed);
     }).catch((err)=>{
       console.log(err.message)
     })
@@ -63,7 +69,9 @@ const EditPersonalInfo =  ({onSubmit}) => {
     e.preventDefault();
 
     const DetailedInfo={Name, DOB, Gender,Phone, martialStatus, childrenNo, professionalStatus,
-      MSM, Duration,Severity, TRD, Level, aug, ect, med, medNo, currentMed}
+      MSM, firstAnswer,secondAnswer, thirdAnswer, level, aug, ect, treatmentSection, treatmentClass, medication,
+      tolerability, adherence, response, dosage
+    }
     fetch('http://localhost:8000/patients/' + id, {
     method: 'PUT',
     headers: { 
@@ -162,7 +170,7 @@ return (
            onClick={()=>navigate('/')}>
                Cancel</button>
            <button className='rightButtons'>
-               Next</button>
+               Save</button>
          </div>
 
        </form>

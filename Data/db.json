@@ -2,16 +2,42 @@
   "patients": [
     {
       "Name": "Lola",
-      "DOB": "2009-02-25",
+      "DOB": "1999-12-21",
       "Gender": "Female",
-      "Phone": "969125434",
-      "martialStatus": "Separated",
+      "Phone": "969125477",
+      "martialStatus": "Married",
       "childrenNo": "1",
       "professionalStatus": "Full time",
-      "MSM": 5,
+      "MSM": 6,
+      "firstAnswer": "Between a year and two",
+      "secondAnswer": "Subsyndromal",
+      "thirdAnswer": "Yes",
+      "level": "Level 1",
       "aug": "Yes",
       "ect": "No",
+      "treatmentSection": [
+        "RECOGNISED ANTIDEPRESSANTS",
+        "OTHER REPORTED TREATMENTS",
+        "RECOGNISED AUGMENTATION THERAPIES"
+      ],
+      "treatmentClass": [
+        "Tricyclic Antidepressants",
+        "Physical treatments",
+        "First and Second Line Therapies"
+      ],
+      "medication": [
+        "Amoxapine",
+        "ECT",
+        "Olanzapine"
+      ],
       "id": 1
+    }
+  ],
+  "users":[
+    {
+      "id": "1",
+      "name" : "Lola",
+      "pass": "2022"
     }
   ]
 }

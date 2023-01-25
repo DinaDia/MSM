@@ -2,12 +2,12 @@
 import Header from "../Header"
 
 
-const Confirmation = ({finalSubmit}) => {
+const Confirmation = ({confirmSubmit}) => {
 
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        finalSubmit();
+        confirmSubmit();
     }
   return (
     <div>

@@ -16,15 +16,16 @@ const FourthQuestion = ({fourthSubmit, fourthBack, addMore}) => {
       const [currentAdherence, setCurrentAdherence]=useState("");
       const [currentResponse, setCurrentResponse]=useState("");
       const [currentDosage, setCurrentDosage]=useState("");
-
+      const [currentDuration, setCurrentDuration]=useState("");
 
       const {treatmentSection, treatmentClass, medicineName }=TreatmentList();
 
       
       const handleSubmit=(e)=>{
         e.preventDefault();
+        
         fourthSubmit(selectedSection, selectedClass, selectedMed, currentTolerability, 
-          currentAdherence, currentResponse, currentDosage);
+          currentAdherence, currentResponse, currentDosage, currentDuration);  
       };
 
       const GoBackFun=(e)=>{
@@ -34,8 +35,10 @@ const FourthQuestion = ({fourthSubmit, fourthBack, addMore}) => {
 
       const handleMoreTreatment=(e)=>{
         e.preventDefault();
+
         addMore(selectedSection, selectedClass, selectedMed, currentTolerability, 
-        currentAdherence, currentResponse, currentDosage);
+        currentAdherence, currentResponse, currentDosage, currentDuration);
+
         
         changeTreatmentSelection("");
         changeTreatmentClass("");
@@ -44,15 +47,13 @@ const FourthQuestion = ({fourthSubmit, fourthBack, addMore}) => {
         setCurrentAdherence("");
         setCurrentResponse("");
         setCurrentDosage("");
+        setCurrentDuration("");
 
   
       }
 
-
-
       
-      
-      const   changeTreatmentSelection=(id)=>{
+      const  changeTreatmentSelection=(id)=>{
         const section=treatmentClass.filter(trt=> trt.treatmentID === id);
         setTreatment(section);
 
@@ -258,8 +259,8 @@ const FourthQuestion = ({fourthSubmit, fourthBack, addMore}) => {
              >
               <option hidden>Select Adherence</option>
               <option value="<25%"> Less than 25%</option>
-              <option value="25%-50%">25%-49%</option>
-              <option value="50%-75%">50%-74%</option>
+              <option value="25%-49%">25%-49%</option>
+              <option value="50%-74%">50%-74%</option>
               <option value=">75%">More than 75%</option>
             </select>           
 
@@ -270,8 +271,8 @@ const FourthQuestion = ({fourthSubmit, fourthBack, addMore}) => {
              >
               <option hidden>Select Response</option>
               <option value="<25%"> Less than 25%</option>
-              <option value="25%-50%">25%-49%</option>
-              <option value="50%-75%">50%-74%</option>
+              <option value="25%-49%">25%-49%</option>
+              <option value="50%-74%">50%-74%</option>
               <option value=">75%">More than 75%</option>
             </select>           
 
@@ -281,6 +282,19 @@ const FourthQuestion = ({fourthSubmit, fourthBack, addMore}) => {
             value={currentDosage} 
             onChange={(e)=>setCurrentDosage(e.target.value)}/>
 
+
+            <label>Has taken the effective minimum dosage for at least 4 weeks? </label>
+            <select className='multiSelectStyle'
+             value={currentDuration}
+             onChange={(e)=>setCurrentDuration(e.target.value)}
+             >
+
+              <option hidden>Duration</option>
+              <option value="Yes"> Yes</option>
+              <option value="No">No</option>
+
+             </select>
+              
              <div className='smallerBoxButtonsDiv'>
               <button className='backButtons'
                onClick={GoBackFun}>

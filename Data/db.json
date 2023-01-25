@@ -32,11 +32,11 @@
       ],
       "id": 1
     }
-  ],
-  "users":[
+   ],
+  "users": [
     {
       "id": "1",
-      "name" : "Lola",
+      "name": "Lola",
       "pass": "2022"
     }
   ]

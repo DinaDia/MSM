@@ -36,6 +36,7 @@ const Questions = () => {
   const [adherence, setAdherence]=useState([]);
   const [response, setResponse]=useState([]);
   const [dosage, setDosage]=useState([]);
+  const [duration, setDuration]=useState([]);
 
   const [order, setOrder]=useState(0);
   const [fourthValue, setFourthValue]=useState(0);
@@ -50,7 +51,7 @@ const Questions = () => {
 
     
   const orderChanges=()=>{
-    if(order===0){
+    if(order===4){
       return <AddContactInfo onSubmit={getContactInfo} />
     }
     else if(order===1){
@@ -62,16 +63,16 @@ const Questions = () => {
     else if(order===3){
       return <ThirdQuestion thirdSubmit={getThirdData} thirdBack={thirdBack}/>
     }
-    else if(order===4){
+    else if(order===0){
       return <FourthQuestion fourthSubmit={getFourthData} fourthBack={fourthBack} addMore={addTreatment}/>
     }
     else if(order===5){
-      return <Confirmation finalSubmit={showResult}/>
+      return <Confirmation confirmSubmit={showResult}/>
     }
     else if(order===6){
       return <Result  finalSubmit={complete}firstAnswer={firstAnswer} firstValue={firstValue} secondAnswer={secondAnswer} secondValue={secondValue}
       thirdAnswer={thirdAnswer} treatmentSection={treatmentSection} fourthValue={fourthValue} augCount={augCount} ectCount={ectCount}
-      treatmentClass={treatmentClass} medication={medication}/>
+      treatmentClass={treatmentClass} medication={medication} duration={duration} adherence={adherence} response={response}/>
     }
 
   }
@@ -118,7 +119,7 @@ const Questions = () => {
 
 
   const addTreatment=(selectedSection, selectedClass, selectedMed, currentTolerability, 
-    currentAdherence, currentResponse, currentDosage)=>{
+    currentAdherence, currentResponse, currentDosage, currentDuration)=>{
 
 
     setTreatmentSection([...treatmentSection, selectedSection]);
@@ -128,11 +129,11 @@ const Questions = () => {
     setAdherence([...adherence, currentAdherence]);
     setResponse([...response, currentResponse]);
     setDosage([...dosage, currentDosage]);
-
+    setDuration([...duration, currentDuration]);
   };
 
   const getFourthData=(selectedSection, selectedClass, selectedMed, currentTolerability, 
-    currentAdherence, currentResponse, currentDosage,)=>{
+    currentAdherence, currentResponse, currentDosage, currentDuration )=>{
     
     setTreatmentSection([...treatmentSection, selectedSection]);
     setTreatmentClass([...treatmentClass, selectedClass]);
@@ -141,6 +142,7 @@ const Questions = () => {
     setAdherence([...adherence, currentAdherence]);
     setResponse([...response, currentResponse]);
     setDosage([...dosage, currentDosage]);
+    setDuration([...duration, currentDuration]);
     
     setOrder(5);
   };
@@ -189,7 +191,11 @@ const Questions = () => {
             }
           });     
 
-          setOrder(6);
+
+      setOrder(6);
+
+
+  
   };
 
 
@@ -206,6 +212,8 @@ const Questions = () => {
         setAug("No")
     }
 
+    console.log(aug);
+
     switch(ectCount){
       case 1:
         setEct("Yes");
@@ -217,7 +225,7 @@ const Questions = () => {
     
     const Patient={ Name, DOB, Gender, Phone, martialStatus, childrenNo, professionalStatus,
       currentTime, firstAnswer, secondAnswer, thirdAnswer, treatmentSection, treatmentClass, medication, 
-      tolerability, adherence, response, dosage, MSM, aug, ect, level
+      tolerability, adherence, response, dosage, MSM, aug, ect, level, duration
     };
           fetch('http://localhost:8000/patients', {
           method: 'POST',

@@ -1,75 +1,100 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Header from "./Header"
-
-
-const Result = ({finalSubmit, firstAnswer, firstValue,secondAnswer, secondValue, thirdAnswer,
-  treatmentSection, treatmentClass, medication, fourthValue, augCount, ectCount}) => {
-
-    const navigate=useNavigate();
-
-    const [finalResult, setFinaLResult]=useState('');
-    const [trdInfo, setTrdInfo]=useState('');
-    const [MSM, setMSM]=useState(0);
-
-
-    const handleSubmit=(e)=>{
-      e.preventDefault();
-      finalSubmit(MSM);
-
-    }
-
-
-    const SampleFun=()=>{
-
-    const score=Number(firstValue) + Number(secondValue) + Number(fourthValue) + Number(augCount) + Number(ectCount);
-
-      setMSM(score);
+const Result = ({treatmentSection, treatmentClass, medication, duration, adherence, response}) => {
+  
+  
+  const SampleFun=()=>{
+    for(let i=0; i<=treatmentSection.length; i++){
       
-      if(score<3){
-        setFinaLResult('MSM not detected');
-        setTrdInfo(`Patient doesn't have treatment resistance`);
-       }
-       else if(score>3 && score<=6){
-        setFinaLResult('MSM detected');
-        setTrdInfo(`Patient has treatment resistance with mild severity`)
-       }
-       else if(score>7 && score<=10){
-        setFinaLResult('MSM detected');
-        setTrdInfo('Patient has treatment resistance with moderate severity');
-       }
-       else {
-        setFinaLResult('MSM detected');
-        setTrdInfo('Patient has treatment resistance with severe severity');
-       }
-
-       return (
-        <div className="MSMResult">
-            <h2 style={{marginLeft: "50px"}}>{finalResult}</h2>
-            <p>{trdInfo} and has {secondAnswer.toLowerCase()} symptoms  that have lasted for {firstAnswer.toLowerCase()}</p>
-
-
-           <div className='smallerBoxButtonsDiv'>
-              <button className='backButtons' 
-              onClick={()=>navigate('/')}>
-                Go to homepage</button>
-
-              <button className='rightButtons'
-              onClick={handleSubmit}>
-                Save</button>
+    if(treatmentSection[i] === 'RECOGNISED ANTIDEPRESSANTS'){
+      if(adherence[i]==='>75%' && response[i] !== '>75%' && duration[i] ==='Yes'){
+        return (
+          <div>
+              <p>{medication[i]}</p>
           </div>
-            
-            </div>
-       )
-
+         )
+      }
     }
+    }
+  }
 
-  return (
+  const sampleCount=()=>{
+    for (let i=0; i<=treatmentSection.length; i++){
+      return i;
+    }
+  }
+  
+return (
+  <div>
     <div>
-      <Header/>
-      <SampleFun/>
+      <h2>Treatment section</h2>
+      <p>{treatmentSection.length}</p>
+      {treatmentSection.map((treatment)=>{
+        return(
+          <p>{treatment}</p>
+        )
+      })}
     </div>
-  )
+
+    
+    <div>
+      <h2>Treatment Class</h2>
+      {treatmentClass.map((treatment)=>{
+        return(
+          <p>{treatment}</p>
+        )
+      })}
+    </div>
+
+    <div>
+      <h2>Treatment name</h2>
+      {medication.map((treatment)=>{
+        return(
+          <p>{treatment}</p>
+        )
+      })}
+    </div>
+
+
+    
+    
+    <div>
+      <h2>Treatment adherence</h2>
+      {adherence.map((treatment)=>{
+        return(
+          <p>{treatment}</p>
+        )
+      })}
+    </div>
+
+
+    <div>
+      <h2>Treatment response</h2>
+      {response.map((treatment)=>{
+        return(
+          <p>{treatment}</p>
+        )
+      })}
+    </div>
+
+    
+    <div>
+      <h2>Duration</h2>
+      {duration.map((treatment)=>{
+        return(
+          <p>{treatment}</p>
+        )
+      })}
+     
+    </div>
+
+
+    <div>
+      <h2>Counted medicines</h2>
+      <SampleFun/> 
+      <h2>Count</h2>      
+   </div>
+    
+  </div>
+)
 }
 
 export default Result

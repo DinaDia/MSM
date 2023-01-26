@@ -42,7 +42,6 @@ const Questions = () => {
 
 
   const [order, setOrder]=useState(0);
-  const [fourthValue, setFourthValue]=useState(0);
   const [augCount, setAugCount]=useState(0);
   const [aug, setAug]=useState('No');
   const [ect, setEct]=useState('No');
@@ -73,8 +72,8 @@ const Questions = () => {
     }
     else if(order===6){
       return <Result  finalSubmit={complete}Duration={Duration} firstValue={firstValue} symptom={symptom} secondValue={secondValue}
-      treatment={treatment} treatmentSection={treatmentSection} fourthValue={fourthValue} augCount={augCount} ectCount={ectCount} aug={aug} ect={ect}
-     tolerability= {tolerability}
+      treatment={treatment} treatmentSection={treatmentSection} augCount={augCount} ectCount={ectCount} aug={aug} ect={ect}
+     tolerability= {tolerability} medDuration={medDuration}
       treatmentClass={treatmentClass} medication={medication} medDuration={medDuration} adherence={adherence} response={response} countedMed={countedMed}
       responseOfMed={responseOfMed}/>
     }

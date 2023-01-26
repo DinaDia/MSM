@@ -246,7 +246,7 @@ const FourthQuestion = ({fourthSubmit, fourthBack, addMore}) => {
              onChange={(e)=>setCurrentTolerability(e.target.value)}
              >
               <option hidden>Select Tolerability</option>
-              <option value="Good">Good</option>
+              <option value="Good tolerability">Good</option>
               <option value="Mini side effects">Mini side effects</option>
               <option value="Moderate side effects">Moderate side effects</option>
               <option value="Severe side effects">Severe side effects</option>

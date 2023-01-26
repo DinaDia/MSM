@@ -2,13 +2,19 @@
 import Header from "../Header"
 
 
-const Confirmation = ({confirmSubmit}) => {
+const Confirmation = ({confirmSubmit, startAgain}) => {
 
 
-    const handleSubmit=(e)=>{
+    const handleClick=(e)=>{
         e.preventDefault();
         confirmSubmit();
     }
+
+    const takeTestAgain=(e)=>{
+        e.preventDefault();
+        startAgain();
+    }
+
   return (
     <div>
         <Header/>
@@ -16,7 +22,8 @@ const Confirmation = ({confirmSubmit}) => {
         <div className="questionDiv">
             <p className="questionText">Test completed, click here to see result</p>
             <ul>
-                <li onClick={handleSubmit}>Check result</li>
+                <li onClick={handleClick}>Check result</li>
+                <li onClick={takeTestAgain}>Take test again</li>
             </ul>
         </div>
         </div>

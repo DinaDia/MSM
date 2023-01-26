@@ -1,0 +1,28 @@
+treatmentSection.forEach(treatment=>{
+            if(treatment=== "RECOGNISED ANTIDEPRESSANTS"){
+              treatmentCount+=1;
+            }
+          });
+          if(treatmentCount<=2){
+            setFourthValue(1);
+            setLevel('Level 1');
+          }
+          else if(treatmentCount>=3 && treatmentCount<=4){
+            setFourthValue(2);
+            setLevel('Level 2');
+          }
+          else if(treatmentCount>=5 && treatmentCount<=6){
+            setFourthValue(3);
+            setLevel('Level 3');
+
+          }
+          else if(treatmentCount>=7 && treatmentCount<=10){
+            setFourthValue(4);
+            setLevel('Level 4');
+
+          }
+          else {
+            setFourthValue(5);
+            setLevel('Level 5')
+          }
+

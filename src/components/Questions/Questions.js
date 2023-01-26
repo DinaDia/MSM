@@ -21,12 +21,12 @@ const Questions = () => {
   const [professionalStatus, setProfessionalStatus]=useState('');
 
   const [firstValue, setFirstValue]=useState('');
-  const [firstAnswer, setFirstAnswer]=useState('');
+  const [Duration, setDuration]=useState('');
 
-  const [secondAnswer, setSecondAnswer]=useState('')
+  const [symptom, setSymptom]=useState('')
   const [secondValue, setSecondValue]=useState('');
 
-  const [thirdAnswer, setThirdAnswer]=useState('');
+  const [treatment, setTreatment]=useState('');
   const [thirdId, setThirdId]=useState(''); 
   
   const [treatmentSection, setTreatmentSection]=useState([]);
@@ -36,18 +36,20 @@ const Questions = () => {
   const [adherence, setAdherence]=useState([]);
   const [response, setResponse]=useState([]);
   const [dosage, setDosage]=useState([]);
-  const [duration, setDuration]=useState([]);
+  const [medDuration, setMedDuration]=useState([]);
+  const [countedMed, setCountedMed]=useState([]);
+  const [responseOfMed, setResponseOfMed]=useState([]);
+
 
   const [order, setOrder]=useState(0);
   const [fourthValue, setFourthValue]=useState(0);
   const [augCount, setAugCount]=useState(0);
-  const [aug, setAug]=useState('');
-  const [ect, setEct]=useState('');
+  const [aug, setAug]=useState('No');
+  const [ect, setEct]=useState('No');
   const [level, setLevel]=useState('');
   const [ectCount, setEctCount]=useState(0);
   const [MSM, setMSM]=useState(0);
 
-  let treatmentCount=0;
 
     
   const orderChanges=()=>{
@@ -67,12 +69,14 @@ const Questions = () => {
       return <FourthQuestion fourthSubmit={getFourthData} fourthBack={fourthBack} addMore={addTreatment}/>
     }
     else if(order===5){
-      return <Confirmation confirmSubmit={showResult}/>
+      return <Confirmation confirmSubmit={showResult} startAgain={StartOver}/>
     }
     else if(order===6){
-      return <Result  finalSubmit={complete}firstAnswer={firstAnswer} firstValue={firstValue} secondAnswer={secondAnswer} secondValue={secondValue}
-      thirdAnswer={thirdAnswer} treatmentSection={treatmentSection} fourthValue={fourthValue} augCount={augCount} ectCount={ectCount}
-      treatmentClass={treatmentClass} medication={medication} duration={duration} adherence={adherence} response={response}/>
+      return <Result  finalSubmit={complete}Duration={Duration} firstValue={firstValue} symptom={symptom} secondValue={secondValue}
+      treatment={treatment} treatmentSection={treatmentSection} fourthValue={fourthValue} augCount={augCount} ectCount={ectCount} aug={aug} ect={ect}
+     tolerability= {tolerability}
+      treatmentClass={treatmentClass} medication={medication} medDuration={medDuration} adherence={adherence} response={response} countedMed={countedMed}
+      responseOfMed={responseOfMed}/>
     }
 
   }
@@ -92,7 +96,7 @@ const Questions = () => {
   
   const getFirstData=(firstAnswer, firstValue)=>{
     
-    setFirstAnswer(firstAnswer);
+    setDuration(firstAnswer);
     setFirstValue(firstValue);
 
     setOrder(2);
@@ -100,13 +104,13 @@ const Questions = () => {
   };
 
   const getSecondData=(secondAnswer, secondValue)=>{
-    setSecondAnswer(secondAnswer);
+    setSymptom(secondAnswer);
     setSecondValue(secondValue);
     setOrder(3);
   }
 
   const getThirdData=(thirdAnswer, thirdId)=>{
-    setThirdAnswer(thirdAnswer);
+    setTreatment(thirdAnswer);
     setThirdId(thirdId);
     if(thirdId === 100){
       setOrder(6);
@@ -129,11 +133,20 @@ const Questions = () => {
     setAdherence([...adherence, currentAdherence]);
     setResponse([...response, currentResponse]);
     setDosage([...dosage, currentDosage]);
-    setDuration([...duration, currentDuration]);
+    setMedDuration([...medDuration, currentDuration]);
+
+    if(selectedSection === 'RECOGNISED ANTIDEPRESSANTS'){
+      if (currentAdherence === '>75%' && currentResponse !== '>75%' && currentDuration === 'Yes')
+      {
+        setCountedMed([...countedMed, selectedMed]);
+        setResponseOfMed([...responseOfMed, currentResponse])
+      }
+    }
+   
   };
 
   const getFourthData=(selectedSection, selectedClass, selectedMed, currentTolerability, 
-    currentAdherence, currentResponse, currentDosage, currentDuration )=>{
+    currentAdherence, currentResponse, currentDosage, currentDuration, trdMed)=>{
     
     setTreatmentSection([...treatmentSection, selectedSection]);
     setTreatmentClass([...treatmentClass, selectedClass]);
@@ -142,90 +155,48 @@ const Questions = () => {
     setAdherence([...adherence, currentAdherence]);
     setResponse([...response, currentResponse]);
     setDosage([...dosage, currentDosage]);
-    setDuration([...duration, currentDuration]);
+    setMedDuration([...medDuration, currentDuration]);
+    setCountedMed([...countedMed, trdMed]);
+
+    if(selectedSection === 'RECOGNISED ANTIDEPRESSANTS'){
+      if (currentAdherence === '>75%' && currentResponse !== '>75%' && currentDuration === 'Yes')
+      {
+        setCountedMed([...countedMed, selectedMed]);
+        setResponseOfMed([...responseOfMed, currentResponse])
+      }
+    }
+
     
     setOrder(5);
   };
 
   const showResult=()=>{
 
-          treatmentSection.forEach(treatment=>{
-            if(treatment=== "RECOGNISED ANTIDEPRESSANTS"){
-              treatmentCount+=1;
-            }
-          });
-          if(treatmentCount<=2){
-            setFourthValue(1);
-            setLevel('Level 1');
-          }
-          else if(treatmentCount>=3 && treatmentCount<=4){
-            setFourthValue(2);
-            setLevel('Level 2');
-          }
-          else if(treatmentCount>=5 && treatmentCount<=6){
-            setFourthValue(3);
-            setLevel('Level 3');
 
-          }
-          else if(treatmentCount>=7 && treatmentCount<=10){
-            setFourthValue(4);
-            setLevel('Level 4');
+    console.log(treatmentSection.includes('RECOGNISED AUGMENTATION THERAPIES'))
+    
+    if(treatmentSection.includes('RECOGNISED AUGMENTATION THERAPIES')){
+      setAugCount(1);
+      setAug('Yes');
+    }
 
-          }
-          else {
-            setFourthValue(5);
-            setLevel('Level 5')
-          }
-
-
-          treatmentSection.forEach(treatment=>{
-            if(treatment=== "RECOGNISED AUGMENTATION THERAPIES"){
-              setAugCount(1);
-            }
-          });         
-
-
-          medication.forEach(medication=>{
-            if(medication=== "ECT"){
-              setEctCount(1);
-            }
-          });     
-
+    if(medication.includes('ECT')){
+      setEctCount(1);
+      setEct('Yes')
+    }
+   
 
       setOrder(6);
-
-
-  
   };
 
 
   const complete=(MSM)=>{
 
     setMSM(MSM);
-    const currentTime=new Date();
-    switch(augCount){
-      case 1:
-        setAug("Yes");
-        break;
-
-      default:
-        setAug("No")
-    }
-
-    console.log(aug);
-
-    switch(ectCount){
-      case 1:
-        setEct("Yes");
-        break;
-
-      default:
-        setEct("No")
-    }
-    
+    const currentTime=new Date();    
     const Patient={ Name, DOB, Gender, Phone, martialStatus, childrenNo, professionalStatus,
-      currentTime, firstAnswer, secondAnswer, thirdAnswer, treatmentSection, treatmentClass, medication, 
-      tolerability, adherence, response, dosage, MSM, aug, ect, level, duration
+      currentTime, Duration, symptom, treatment, treatmentSection, treatmentClass, medication, 
+      tolerability, adherence, response, dosage, MSM, aug, ect, level, medDuration, countedMed, responseOfMed
     };
           fetch('http://localhost:8000/patients', {
           method: 'POST',
@@ -256,6 +227,10 @@ const Questions = () => {
   const fourthBack=()=>{
     setOrder(3);
   };
+
+  const StartOver=()=>{
+    setOrder(0);
+  }
 
 
   return (

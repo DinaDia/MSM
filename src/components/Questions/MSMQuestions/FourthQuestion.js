@@ -1,4 +1,5 @@
 
+import { current } from "@reduxjs/toolkit";
 import { useState, useEffect } from "react";
 import Header from "../../Header";
 import TreatmentList from "../../TreatmentList";
@@ -22,8 +23,7 @@ const FourthQuestion = ({fourthSubmit, fourthBack, addMore}) => {
 
       
       const handleSubmit=(e)=>{
-        e.preventDefault();
-        
+        e.preventDefault(); 
         fourthSubmit(selectedSection, selectedClass, selectedMed, currentTolerability, 
           currentAdherence, currentResponse, currentDosage, currentDuration);  
       };
@@ -35,6 +35,7 @@ const FourthQuestion = ({fourthSubmit, fourthBack, addMore}) => {
 
       const handleMoreTreatment=(e)=>{
         e.preventDefault();
+        
 
         addMore(selectedSection, selectedClass, selectedMed, currentTolerability, 
         currentAdherence, currentResponse, currentDosage, currentDuration);

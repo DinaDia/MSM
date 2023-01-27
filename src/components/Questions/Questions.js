@@ -39,6 +39,7 @@ const Questions = () => {
   const [medDuration, setMedDuration]=useState([]);
   const [countedMed, setCountedMed]=useState([]);
   const [responseOfMed, setResponseOfMed]=useState([]);
+  const [durationInfo, setDurationInfo]=useState('');
 
 
   const [order, setOrder]=useState(0);
@@ -52,7 +53,7 @@ const Questions = () => {
 
     
   const orderChanges=()=>{
-    if(order===4){
+    if(order===0){
       return <AddContactInfo onSubmit={getContactInfo} />
     }
     else if(order===1){
@@ -64,7 +65,7 @@ const Questions = () => {
     else if(order===3){
       return <ThirdQuestion thirdSubmit={getThirdData} thirdBack={thirdBack}/>
     }
-    else if(order===0){
+    else if(order===4){
       return <FourthQuestion fourthSubmit={getFourthData} fourthBack={fourthBack} addMore={addTreatment}/>
     }
     else if(order===5){
@@ -74,8 +75,8 @@ const Questions = () => {
       return <Result  finalSubmit={complete}Duration={Duration} firstValue={firstValue} symptom={symptom} secondValue={secondValue}
       treatment={treatment} treatmentSection={treatmentSection} augCount={augCount} ectCount={ectCount} aug={aug} ect={ect}
      tolerability= {tolerability} medDuration={medDuration}
-      treatmentClass={treatmentClass} medication={medication} medDuration={medDuration} adherence={adherence} response={response} countedMed={countedMed}
-      responseOfMed={responseOfMed}/>
+      treatmentClass={treatmentClass} medication={medication} adherence={adherence} response={response} countedMed={countedMed}
+      responseOfMed={responseOfMed} dosage={dosage}/>
     }
 
   }
@@ -132,7 +133,6 @@ const Questions = () => {
     setAdherence([...adherence, currentAdherence]);
     setResponse([...response, currentResponse]);
     setDosage([...dosage, currentDosage]);
-    setMedDuration([...medDuration, currentDuration]);
 
     if(selectedSection === 'RECOGNISED ANTIDEPRESSANTS'){
       if (currentAdherence === '>75%' && currentResponse !== '>75%' && currentDuration === 'Yes')
@@ -172,7 +172,6 @@ const Questions = () => {
   const showResult=()=>{
 
 
-    console.log(treatmentSection.includes('RECOGNISED AUGMENTATION THERAPIES'))
     
     if(treatmentSection.includes('RECOGNISED AUGMENTATION THERAPIES')){
       setAugCount(1);
@@ -189,9 +188,10 @@ const Questions = () => {
   };
 
 
-  const complete=(MSM)=>{
+  const complete=(level, MSM)=>{
 
     setMSM(MSM);
+    setLevel(level)
     const currentTime=new Date();    
     const Patient={ Name, DOB, Gender, Phone, martialStatus, childrenNo, professionalStatus,
       currentTime, Duration, symptom, treatment, treatmentSection, treatmentClass, medication, 

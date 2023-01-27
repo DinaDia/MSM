@@ -3,8 +3,8 @@ import { useState } from "react";
 import Header from "./Header";
 
 
-const Result = ({finalSubmit, Duration, firstValue,symptom, secondValue, thirdAnswer,
-  treatmentSection, treatmentClass, medication, augCount, ectCount, countedMed, aug, ect, responseOfMed, adherence, tolerability, response, medDuration }) => {
+const Result = ({finalSubmit, Duration, firstValue,symptom, secondValue,
+  treatmentSection, treatmentClass, medication, augCount, ectCount, countedMed, adherence, tolerability, response, medDuration, dosage }) => {
 
     
     const [finalResult, setFinaLResult]=useState('');
@@ -12,12 +12,12 @@ const Result = ({finalSubmit, Duration, firstValue,symptom, secondValue, thirdAn
     const [level, setLevel]=useState('');
     const [trdInfo, setTrdInfo]=useState('');
     const [MSM, setMSM]=useState(0);
-    const [durationInfo, setDurationInfo]=useState('');
 
     const navigate=useNavigate();
 
     const handleSubmit=(e)=>{
       e.preventDefault();
+      finalSubmit(level, MSM)
     }
 
     const SampleFun=()=>{
@@ -55,13 +55,13 @@ const Result = ({finalSubmit, Duration, firstValue,symptom, secondValue, thirdAn
       else {
         setFinaLResult('Treatment resistance detected');
         if(score>=1 && score<=6){
-          setTrdInfo('Patient has treatment resistance with mild severity');
+          setTrdInfo(`Patient has ${level} treatment resistance with mild severity`);
         }
         else if(score>7 && score<=10){
-          setTrdInfo('Patient has treatment resistance with moderate severity');
+          setTrdInfo(`Patient has ${level} treatment resistance with moderate severity`);
         }
         else{
-          setTrdInfo('Patient has treatment resistance with severe severity');
+          setTrdInfo(`Patient has ${level}treatment resistance with severe severity`);
          }
       }
       
@@ -70,6 +70,7 @@ const Result = ({finalSubmit, Duration, firstValue,symptom, secondValue, thirdAn
           <div className="MSMResult">
             <h2 style={{marginLeft: "50px"}}>Test Result</h2>
             <h3 className='patientInfoTextStyle'>{finalResult}</h3>
+
           
             <p className='patientInfoText'>{trdInfo} and has been having {symptom.toLowerCase()} symptoms for {Duration.toLowerCase()} </p>
             <br/><br/>
@@ -78,9 +79,19 @@ const Result = ({finalSubmit, Duration, firstValue,symptom, secondValue, thirdAn
             <p className='patientInfoText'>List of medication taken is as follows:</p>
               {medication.map((med, i)=>{
                 return(
-                  <p key={i}>&#x2022;{med}:<span className='patientInfoText'>
-                     {tolerability[i].toLowerCase()} , {adherence[i]} adherence, {response[i]} response
-                    </span>  </p>
+                  <div key={i}>
+                        <p style={{paddingBottom:"5px", paddingTop:"5px"}}>&#x2022; Medication {i+1}</p>
+                    <div style={{padding: "0px 25px 5px 25px"}}>
+                        <p>Medication name:<span className='patientInfoText'> {med} </span> </p>
+                        <p>Tolerability:<span className='patientInfoText'>{tolerability[i].toLowerCase()} </span> </p>
+                        <p>Adherence:<span className='patientInfoText'>{adherence[i]} </span> </p>
+                        <p>Response:<span className='patientInfoText'>{response[i]} </span> </p>      
+                        <p>Dosage:<span className='patientInfoText'>{dosage[i]} </span> </p>    
+                        <p>Has been taken the effective minimum dosage for at least for 4 weeks :<span className='patientInfoText'>{medDuration[i]} </span> </p>      
+
+                    </div>
+                    
+                  </div>
                 )
               })}
 

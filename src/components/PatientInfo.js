@@ -92,17 +92,17 @@ const PatientInfo = () => {
             <div className='individualPatientInfo'>  
             <p>Duration of depressive episode: 
               <span className='patientInfoText'>
-                {patient.firstAnswer}
+                {patient.Duration}
               </span>
             </p>
             <p>Symptom severity: 
               <span className='patientInfoText'>
-                {patient.secondAnswer}
+                {patient.symptom}
               </span>
             </p>
             <p>Treatment resistance: 
               <span className='patientInfoText'>
-                {patient.thirdAnswer}
+                {patient.treatment}
               </span>
             </p>
             <p>Treatment failure level: 
@@ -110,20 +110,41 @@ const PatientInfo = () => {
                 {patient.level}
               </span>
             </p>
-            <p>Number of medication taken: 
+            <p>Total number of medicines taken: 
               <span className='patientInfoText'>
                 {patient.medication.length}
               </span>
             </p>
-            <div>List of medication taken: 
+            
+            <p>Number of medication with resistance: 
               <span className='patientInfoText'>
-                {patient.medication.map((med)=>{
-                  return (
-                      <p>{med}</p>
-                  )
-                })}
+                {patient.medication.length}
               </span>
+            </p>
+
+            <div>List of medication taken: 
+              {patient.medication.map((med, i)=>{
+                return(
+                  <div key={i}>
+                        <p style={{paddingBottom:"5px", paddingTop:"5px"}}>&#x2022; Medication {i+1}</p>
+                    <div style={{padding: "0px 25px 5px 25px"}}>
+                        <p>Treatment section: <span className='patientInfoText'> {patient.treatmentSection[i]} </span> </p>
+                        <p>Treatment class: <span className='patientInfoText'> {patient.treatmentClass[i]} </span> </p>
+                        <p>Medication name:<span className='patientInfoText'> {med} </span> </p>
+                        <p>Tolerability:<span className='patientInfoText'>{patient.tolerability[i].toLowerCase()} </span> </p>
+                        <p>Adherence:<span className='patientInfoText'>{patient.adherence[i]} </span> </p>
+                        <p>Response:<span className='patientInfoText'>{patient.response[i]} </span> </p>      
+                        <p>Dosage:<span className='patientInfoText'>{patient.dosage[i]} </span> </p>    
+                        <p>Has been taken the effective minimum dosage for at least for 4 weeks :<span className='patientInfoText'>{patient.medDuration[i]} </span> </p>      
+
+
+                    </div>
+                    
+                  </div>
+                )
+              })}
             </div>
+            
             <p>Augmentation: 
               <span className='patientInfoText'>
                 {patient.aug} </span>

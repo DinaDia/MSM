@@ -12,6 +12,8 @@ import FirstQuestion from './components/Questions/MSMQuestions/FirstQuestion';
 import SecondQuestion from './components/Questions/MSMQuestions/SecondQuestion';
 import ThirdQuestion from './components/Questions/MSMQuestions/ThirdQuestion';
 import FourthQuestion from './components/Questions/MSMQuestions/FourthQuestion';
+import Administration from './components/Admin/Administration';
+import Dashboard from './components/Admin/Dashboard';
 // import { ClipLoader } from 'react-spinners';
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
           <Route exact path="/SecondQuestion" element={<SecondQuestion/>}/>
           <Route exact path="/ThirdQuestion" element={<ThirdQuestion/>}/>
           <Route exact path="/FourthQuestion" element={<FourthQuestion/>}/>
+          <Route exact path="Administration" element={<Administration/>}/>
+          <Route exact path="Dashboard" element={<Dashboard/>}/>
 
           
         </Routes>

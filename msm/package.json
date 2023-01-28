@@ -1,11 +1,6 @@
 {
   "name": "msmcdt",
-  "proxy": {
-    "/api/*":  {
-      "target": "http://localhost:8000",
-      "secure": false
-    }
-  },
+  "proxy": "http://localhost:8000/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

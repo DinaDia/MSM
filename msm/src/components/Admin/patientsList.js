@@ -15,13 +15,12 @@ const patientsList = (props) => {
       <TextField source='Name' />
       <TextField source='Gender' />
       <TextField source='Phone' />
-      <DateField source='DOB' />
+      <DateField source='birthDate' />
       <TextField source='martialStatus' />
       <TextField source='childrenNo' />
       <TextField source='Duration' />
-      
-      <EditButton basePath='/patients' />
-      <DeleteButton basePath='/patients' />
+      <EditButton basepath='/patients' />
+      <DeleteButton basepath='/patients' />
     </Datagrid>
   </List>
   )

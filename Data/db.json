@@ -2,7 +2,7 @@
   "patients": [
     {
       "Name": "Lola",
-      "DOB": "1999-12-21",
+      "birthDate": "1999-12-21",
       "Gender": "Female",
       "Phone": "969125477",
       "martialStatus": "Married",

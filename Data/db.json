@@ -41,9 +41,9 @@
       "childrenNo": "",
       "professionalStatus": "",
       "currentTime": "2023-01-27T16:05:09.040Z",
-      "Duration": "",
-      "symptom": "",
-      "treatment": "",
+      "Duration": "Acute",
+      "symptom": "Mild",
+      "treatment": "Yes",
       "treatmentSection": [
         "RECOGNISED ANTIDEPRESSANTS",
         "RECOGNISED ANTIDEPRESSANTS"
@@ -94,7 +94,14 @@
     {
       "id": "1",
       "name": "Lola",
-      "pass": "2022"
+      "email": "lola@gmail.com",
+      "pass": "2023"
+    },
+    {
+      "name": "Dina",
+      "email": "dinamuktar0621@gmail.com",
+      "pass": "werfgthjhgtresdfr",
+      "id": "cDW1D_g"
     }
   ]
 }

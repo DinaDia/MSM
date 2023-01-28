@@ -19,7 +19,12 @@ const patientsList = (props) => {
       <TextField source='martialStatus' />
       <TextField source='childrenNo' />
       <TextField source='Duration' />
-      <EditButton basepath='/patients' />
+      <TextField source='symptom' />
+      <TextField source='treatment' />
+      <TextField source='level' />
+      <TextField source='Msm' />
+      <TextField source='aug' />
+      <TextField source='ect' />
       <DeleteButton basepath='/patients' />
     </Datagrid>
   </List>

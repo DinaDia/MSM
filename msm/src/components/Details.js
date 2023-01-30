@@ -47,13 +47,13 @@ const Details = ({data:Patients}) => {
                   <td className="tBodyStyle">{patient.Age}</td>
                   <td className="tBodyStyle">{patient.Gender}</td>
                   <td className="tBodyStyle">{patient.MSM}</td>
-                  <td className="tBodyStyle">{patient.firstAnswer}</td>
-                  <td className="tBodyStyle">{patient.secondAnswer}</td>
-                  <td className="tBodyStyle">{patient.thirdAnswer}</td>
+                  <td className="tBodyStyle">{patient.Duration}</td>
+                  <td className="tBodyStyle">{patient.symptom}</td>
+                  <td className="tBodyStyle">{patient.treatment}</td>
                   <td className="tBodyStyle">
   
                       <button className="viewButton"
-                      onClick={()=>navigate(`PatientInfo/${patient.id}`)}>View
+                      onClick={()=>navigate(`/PatientInfo/${patient.id}`)}>View
                       </button>
                   </td>
                   <td className="tBodyStyle">

@@ -12,9 +12,9 @@ const FirstQuestion = ({firstSubmit, firstBack}) => {
     const msm1= {
         msm: "What was the duration of the current depressive episode?",
         options:[
-            {id:0, answer: "Less than a year", value: 1},
-            {id:1, answer: "Between a year and two", value: 2},
-            {id:2, answer: "More than two years", value: 3},
+            {id:0, answer: "Less than a year", value: "Acute"},
+            {id:1, answer: "Between a year and two", value: "Subacute"},
+            {id:2, answer: "More than two years", value: "Chronic" },
         ],
     };
 

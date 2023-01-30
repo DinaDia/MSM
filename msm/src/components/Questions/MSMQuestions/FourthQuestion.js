@@ -1,5 +1,4 @@
 
-import { current } from "@reduxjs/toolkit";
 import { useState, useEffect } from "react";
 import Header from "../../Header";
 import TreatmentList from "../../TreatmentList";
@@ -41,7 +40,7 @@ const FourthQuestion = ({fourthSubmit, fourthBack, addMore}) => {
         currentAdherence, currentResponse, currentDosage, currentDuration);
 
         
-        changeTreatmentSelection("");
+        setTreatmentType("");
         changeTreatmentClass("");
         setSelectedMed("");
         setCurrentTolerability("");

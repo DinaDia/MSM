@@ -14,13 +14,15 @@ import ThirdQuestion from './components/Questions/MSMQuestions/ThirdQuestion';
 import FourthQuestion from './components/Questions/MSMQuestions/FourthQuestion';
 import Administration from './components/Admin/Administration';
 import Dashboard from './components/Admin/Dashboard';
+import Login from './components/Login';
 // import { ClipLoader } from 'react-spinners';
 
 function App() {
   return (
         <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<Homepage/>}/>
+          <Route exact path="/" element={<Login/>}/>
+          <Route exact path="/Homepage" element={<Homepage/>}/>
           <Route exact path="/PatientInfo/:id" element={<PatientInfo/>}/>
           <Route exact path="/EditPersonalInfo/:id" element={<EditPersonalInfo/>}/>
           <Route exact path="/AddContactInfo" element={<AddContactInfo/>}/>

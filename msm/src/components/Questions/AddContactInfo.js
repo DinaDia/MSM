@@ -101,7 +101,7 @@ const InitialInfo = ({onSubmit}) => {
 
              <div className='smallerBoxButtonsDiv'>
                <button className='backButtons'
-               onClick={()=>navigate('/')}>
+               onClick={()=>navigate('/Homepage')}>
                    Cancel</button>
                <button className='rightButtons'>
                    Next</button>

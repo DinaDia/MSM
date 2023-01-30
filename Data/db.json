@@ -1,49 +1,45 @@
 {
   "patients": [
     {
-      "Name": "Lola",
-      "birthDate": "1999-12-21",
+      "Name": "Lila",
       "Gender": "Female",
       "Phone": "969125477",
       "martialStatus": "Married",
       "childrenNo": "1",
       "professionalStatus": "Full time",
       "MSM": 6,
-      "firstAnswer": "Between a year and two",
-      "secondAnswer": "Subsyndromal",
-      "thirdAnswer": "Yes",
-      "level": "Level 1",
-      "aug": "Yes",
-      "ect": "No",
-      "treatmentSection": [
-        "RECOGNISED ANTIDEPRESSANTS",
-        "OTHER REPORTED TREATMENTS",
-        "RECOGNISED AUGMENTATION THERAPIES"
-      ],
-      "treatmentClass": [
-        "Tricyclic Antidepressants",
-        "Physical treatments",
-        "First and Second Line Therapies"
-      ],
-      "medication": [
-        "Amoxapine",
-        "ECT",
-        "Olanzapine"
-      ],
+      "level": "",
+      "aug": "",
+      "ect": "",
+      "treatmentSection": [],
+      "treatmentClass": [],
+      "medication": [],
+      "tolerability": [],
+      "adherence": [],
+      "response": [],
+      "dosage": [],
+      "medDuration": [],
+      "countedMed": [],
+      "responseOfMed": [],
+      "dateOfCheckup": "2023-01-31",
+      "checkupDuration": "Between a year and two",
+      "checkupSymptom": "Mild",
       "id": 1
     },
     {
-      "Name": "",
-      "DOB": "",
-      "Gender": "",
-      "Phone": "",
-      "martialStatus": "",
-      "childrenNo": "",
-      "professionalStatus": "",
-      "currentTime": "2023-01-27T16:05:09.040Z",
+      "Name": "Dinnn",
+      "Gender": "Female",
+      "Phone": "+251969125434",
+      "martialStatus": "Cohabiting",
+      "childrenNo": "1",
+      "professionalStatus": "Sheltered work",
+      "MSM": 1,
       "Duration": "Acute",
       "symptom": "Mild",
       "treatment": "Yes",
+      "level": "Level 1",
+      "aug": "No",
+      "ect": "No",
       "treatmentSection": [
         "RECOGNISED ANTIDEPRESSANTS",
         "RECOGNISED ANTIDEPRESSANTS"
@@ -64,30 +60,52 @@
         ">75%",
         ">75%"
       ],
-      "response": [
-        "50%-74%",
-        "25%-49%"
-      ],
+      "response": [],
       "dosage": [
         "11",
         "11222"
       ],
-      "MSM": 1,
-      "aug": "No",
-      "ect": "No",
-      "level": "Level 1",
       "medDuration": [
         "Yes"
       ],
       "countedMed": [
-        "Escitalopram",
-        "Clomipramine"
+        "Yes"
       ],
-      "responseOfMed": [
-        "50%-74%",
-        "25%-49%"
-      ],
-      "id": 2
+      "responseOfMed": [],
+      "dateOfCheckup": "0004-04-04",
+      "checkupDuration": "Between a year and two",
+      "checkupSymptom": "Subsyndromal",
+      "id": 2,
+      "DOB": "0644-06-06"
+    },
+    {
+      "Name": "sdfghgfdsdfg",
+      "birthDate": "",
+      "Gender": "",
+      "Phone": "+25444",
+      "martialStatus": "Separated",
+      "childrenNo": "2",
+      "professionalStatus": "Household duties",
+      "currentTime": "2023-01-30T07:17:27.061Z",
+      "Duration": "Subacute",
+      "symptom": "Mild",
+      "treatment": "No",
+      "treatmentSection": [],
+      "treatmentClass": [],
+      "medication": [],
+      "tolerability": [],
+      "adherence": [],
+      "response": [],
+      "dosage": [],
+      "MSM": 4,
+      "aug": "No",
+      "ect": "No",
+      "level": "Level 0",
+      "medDuration": [],
+      "countedMed": [],
+      "responseOfMed": [],
+      "id": 3,
+      "DOB": "0222-01-01"
     }
   ],
   "users": [

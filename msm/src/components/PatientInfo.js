@@ -20,7 +20,7 @@ const PatientInfo = () => {
 
       method: 'DELETE'
     }).then(() => {
-      navigate('/');
+      navigate('/Homepage');
     })   
   }
 

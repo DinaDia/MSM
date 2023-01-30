@@ -10,7 +10,7 @@ const Header = () => {
       <img className="imgStyle"
       src="	https://www.cdt-africa.org/templates/g5_helium/custom/images/Logo/Asset%206logo%20revisedd%20.png" 
       alt="logo"
-      onClick={()=>navigate('/')}/>
+      onClick={()=>navigate('/Homepage')}/>
       
       <button className="addPatientButton"
       onClick={()=>navigate('/Questions')}>

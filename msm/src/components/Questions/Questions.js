@@ -96,8 +96,8 @@ const Questions = () => {
   
   const getFirstData=(firstAnswer, firstValue)=>{
     
-    setDuration(firstAnswer);
-    setFirstValue(firstValue);
+    setDuration(firstValue);
+    setFirstValue(firstAnswer);
 
     setOrder(2);
             
@@ -203,7 +203,7 @@ const Questions = () => {
           body: JSON.stringify(Patient)
           })
           .then(
-            navigate('/')
+            navigate('/Homepage')
           )
 
   }

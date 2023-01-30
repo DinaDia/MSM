@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 
-const EditPersonalInfo =  ({onSubmit}) => {
+const EditPersonalInfo =  () => {
   
   const {id}=useParams();  
 
@@ -14,20 +14,6 @@ const EditPersonalInfo =  ({onSubmit}) => {
   const [martialStatus, setMartialStatus]=useState('');
   const [childrenNo, setChildrenNo]=useState('');
   const [professionalStatus, setProfessionalStatus]=useState('');
-  const [MSM, setMSM]=useState('');
-  const [firstAnswer, setFirstAnswer]=useState('');
-  const [secondAnswer, setSecondAnswer]=useState('');
-  const [thirdAnswer, setThirdAnswer]=useState('');
-  const [treatmentSection, setTreatmentSection]=useState([]);
-  const [treatmentClass, setTreatmentClass]=useState([]);
-  const [medication, setMedication]=useState([]);
-  const [tolerability, setTolerability]=useState([]);
-  const [adherence, setAdherence]=useState([]);
-  const [response, setResponse]=useState([]);
-  const [dosage, setDosage]=useState([]);
-  const [level, setLevel]=useState('');
-  const [aug, setAug]=useState('');
-  const [ect, setEct]=useState('');  
   const navigate=useNavigate();
 
 
@@ -42,20 +28,6 @@ const EditPersonalInfo =  ({onSubmit}) => {
       setMartialStatus(resp.martialStatus);
       setChildrenNo(resp.childrenNo);
       setProfessionalStatus(resp.professionalStatus);
-      setMSM(resp.MSM);
-      setFirstAnswer(resp.firstAnswer);
-      setSecondAnswer(resp.secondAnswer);
-      setThirdAnswer(resp.thirdAnswer);
-      setTreatmentSection(resp.treatmentSection);
-      setTreatmentClass(resp.treatmentClass);
-      setMedication(resp.medication);
-      setTolerability(resp.tolerability);
-      setAdherence(resp.adherence);
-      setResponse(resp.response);
-      setDosage(resp.dosage);
-      setLevel(resp.level);
-      setAug(resp.aug);
-      setEct(resp.ect);
     }).catch((err)=>{
       console.log(err.message)
     })
@@ -68,18 +40,14 @@ const EditPersonalInfo =  ({onSubmit}) => {
   const handleSubmit=(e)=>{
     e.preventDefault();
 
-    const DetailedInfo={Name, DOB, Gender,Phone, martialStatus, childrenNo, professionalStatus,
-      MSM, firstAnswer,secondAnswer, thirdAnswer, level, aug, ect, treatmentSection, treatmentClass, medication,
-      tolerability, adherence, response, dosage
-    }
+    const DetailedInfo={Name, DOB, Gender,Phone, martialStatus, childrenNo, professionalStatus}
     fetch('http://localhost:8000/patients/' + id, {
-    method: 'PUT',
+    method: 'PATCH',
     headers: { 
-      "Accept":"application/json",
       "Content-Type": "application/json" },
     body: JSON.stringify(DetailedInfo)
     }).then(() => {
-      navigate('/')
+      navigate('/Homepage')
      })
     
 }
@@ -167,7 +135,7 @@ return (
 
          <div className='smallerBoxButtonsDiv'>
            <button className='backButtons'
-           onClick={()=>navigate('/')}>
+           onClick={()=>navigate('/Homepage')}>
                Cancel</button>
            <button className='rightButtons'>
                Save</button>

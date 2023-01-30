@@ -51,6 +51,10 @@
     margin-bottom: 0px;
 }
 
+
+
+
+
 .logInButton{
     background-color: #EBFEF5;
     border: 2px solid #01523C;
@@ -275,6 +279,25 @@
     opacity:0.2;
 }
 
+.LoginButton{
+    background-color: #2E4774;
+    border:none;
+    border-radius: 5px;
+    padding:8px 20px 8px 20px; 
+    color:white;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+.LoginButton:hover{
+    opacity:0.7;
+}
+.LoginButton:active{
+    opacity:0.2;
+}
+
+
 
 .addMoreButtons{
     background-color: #01523C;
@@ -317,10 +340,31 @@
     margin:0 auto;
     margin-top: 20px;
     background: #9FE6C9;
-    padding: 20px 20px 5px 20px;
+    padding: 20px 20px 15px 20px;
     max-width: 380px;
 }
 
+.loginInputStyle{
+    background-color: white;
+    border:none;
+    padding:8px;
+    width: 350px;
+    display: block;
+    margin : 0 auto;
+    margin-top: 10px;
+    margin-bottom: 7px;
+    height: 20px;
+    outline: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 15px;
+    color:rgb(139, 139, 139);
+}
+
+.loginInputStyle ::placeholder{
+    color:#01523C;
+    font-size:18px;
+    margin-bottom: 0px;    
+}
 
 .infoInputStyle{
     background-color: white;
@@ -485,4 +529,10 @@ li:active{
     max-width: 800px;
     background-color: #EBFEF5;
     padding: 25px 50px 25px 70px;
+}
+.errorMessageStyle{
+    margin: 0 auto;
+    border: 2px solid rgb(153, 14, 14);
+    background-color: rgb(255, 117, 117);
+    padding: 5px 5px 5px 5px;
 }

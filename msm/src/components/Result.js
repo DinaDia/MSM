@@ -3,7 +3,7 @@ import { useState } from "react";
 import Header from "./Header";
 
 
-const Result = ({finalSubmit, Duration, firstValue,symptom, secondValue,
+const Result = ({finalSubmit, Duration, firstValue,symptom, secondValue, treatment,
   treatmentSection, treatmentClass, medication, augCount, ectCount, countedMed, adherence, tolerability, response, medDuration, dosage }) => {
 
     
@@ -12,6 +12,7 @@ const Result = ({finalSubmit, Duration, firstValue,symptom, secondValue,
     const [level, setLevel]=useState('');
     const [trdInfo, setTrdInfo]=useState('');
     const [MSM, setMSM]=useState(0);
+    const [valueDuration, setValueDuration]=useState();
 
     const navigate=useNavigate();
 
@@ -22,82 +23,136 @@ const Result = ({finalSubmit, Duration, firstValue,symptom, secondValue,
 
     const SampleFun=()=>{
 
+      switch(firstValue){
+        case "Less than a year":
+          setValueDuration(1);
+          break;
+        case "Between a year and two":
+          setValueDuration(2);
+          break;
+        case "More than two years":
+          setValueDuration(3);
+          break;
+         
+        default:
+          setValueDuration('No treatment');  
 
-      const treatmentCount=countedMed.length;
-
-      if(treatmentCount<=2){
-        setFourthValue(1);
-        setLevel('Level 1');
-      }
-      else if(treatmentCount>=3 && treatmentCount<=4){
-        setFourthValue(2);
-        setLevel('Level 2');
-      }
-      else if(treatmentCount>=5 && treatmentCount<=6){
-        setFourthValue(3);
-        setLevel('Level 3');
       } 
-      else if(treatmentCount>=7 && treatmentCount<=10){
-        setFourthValue(4);
-        setLevel('Level 4');
+
+
+      if(treatment === 'Yes'){
+        
+        const treatmentCount=countedMed.length;
+
+        if(treatmentCount<=2){
+          setFourthValue(1);
+          setLevel('Level 1');
+        }
+        else if(treatmentCount>=3 && treatmentCount<=4){
+          setFourthValue(2);
+          setLevel('Level 2');
+        }
+        else if(treatmentCount>=5 && treatmentCount<=6){
+          setFourthValue(3);
+          setLevel('Level 3');
+        } 
+        else if(treatmentCount>=7 && treatmentCount<=10){
+          setFourthValue(4);
+          setLevel('Level 4');
+        }
+        else {
+          setFourthValue(5);
+          setLevel('Level 5');
+        }
+
+
+      const score=Number(valueDuration)+ Number(secondValue)+ Number(fourthValue)+ Number(augCount)+ Number(ectCount);
+  
+        setMSM(score);
+  
+        if(treatmentCount<=0){
+          setFinaLResult('Treatment resistance not detected');
+        }
+        else {
+          setFinaLResult('Treatment resistance detected');
+          if(score>=1 && score<=6){
+            setTrdInfo(`Patient has ${level} treatment resistance with mild severity`);
+          }
+          else if(score>7 && score<=10){
+            setTrdInfo(`Patient has ${level} treatment resistance with moderate severity`);
+          }
+          else{
+            setTrdInfo(`Patient has ${level}treatment resistance with severe severity`);
+           }
+        }
+        
+    
+           return (
+            <div className="MSMResult">
+              <h2 style={{marginLeft: "50px"}}>Test Result</h2>
+              <h3 className='patientInfoTextStyle'>{finalResult}</h3>
+  
+            
+              <p className='patientInfoText'>{trdInfo} and has been having {Duration.toLowerCase()} {symptom.toLowerCase()} symptoms </p>
+              <br/><br/>
+              <h3 className='patientInfoTextStyle'>Medication Summary</h3>
+              <p className='patientInfoText'>The patient has taken total of {treatmentCount} at the time screening</p>
+              <p className='patientInfoText'>List of medication taken is as follows:</p>
+                {medication.map((med, i)=>{
+                  return(
+                    <div key={i}>
+                          <p style={{paddingBottom:"5px", paddingTop:"5px"}}>&#x2022; Medication {i+1}</p>
+                      <div style={{padding: "0px 25px 5px 25px"}}>
+                          <p>Medication name:<span className='patientInfoText'> {med} </span> </p>
+                          <p>Tolerability:<span className='patientInfoText'>{tolerability[i].toLowerCase()} </span> </p>
+                          <p>Adherence:<span className='patientInfoText'>{adherence[i]} </span> </p>
+                          <p>Response:<span className='patientInfoText'>{response[i]} </span> </p>      
+                          <p>Dosage:<span className='patientInfoText'>{dosage[i]} </span> </p>    
+                          <p>Has been taken the effective minimum dosage for at least for 4 weeks :<span className='patientInfoText'>{medDuration[i]} </span> </p>      
+  
+                      </div>
+                      
+                    </div>
+                  )
+                })}
+  
+               <div className='smallerBoxButtonsDiv'>
+                  <button className='backButtons' 
+                  onClick={()=>navigate('/Homepage')}>
+                    Go to homepage</button>
+    
+                  <button className='rightButtons'
+                  onClick={handleSubmit}>
+                    Save</button>
+              </div>
+                
+                </div>
+           )
       }
       else {
-        setFourthValue(5);
-        setLevel('Level 5');
-      }
+        
+        setFourthValue(0);
+        setLevel('Level 0');
 
-      const score=Number(firstValue)+ Number(secondValue)+ Number(fourthValue)+ Number(augCount)+ Number(ectCount);
+      const score=Number(valueDuration)+ Number(secondValue);
+      console.log(valueDuration);
+      console.log(secondValue);
       setMSM(score);
 
-      if(treatmentCount<=0){
+        
         setFinaLResult('Treatment resistance not detected');
-      }
-      else {
-        setFinaLResult('Treatment resistance detected');
-        if(score>=1 && score<=6){
-          setTrdInfo(`Patient has ${level} treatment resistance with mild severity`);
-        }
-        else if(score>7 && score<=10){
-          setTrdInfo(`Patient has ${level} treatment resistance with moderate severity`);
-        }
-        else{
-          setTrdInfo(`Patient has ${level}treatment resistance with severe severity`);
-         }
-      }
+        setTrdInfo(`Patient doesn't have treatment resistance`);
       
-  
          return (
           <div className="MSMResult">
             <h2 style={{marginLeft: "50px"}}>Test Result</h2>
             <h3 className='patientInfoTextStyle'>{finalResult}</h3>
-
-          
-            <p className='patientInfoText'>{trdInfo} and has been having {symptom.toLowerCase()} symptoms for {Duration.toLowerCase()} </p>
+            
+            <p className='patientInfoText'>{trdInfo} and has been having {Duration.toLowerCase()} {symptom.toLowerCase()} symptoms</p>
             <br/><br/>
-            <h3 className='patientInfoTextStyle'>Medication Summary</h3>
-            <p className='patientInfoText'>The patient has taken total of {treatmentCount} at the time screening</p>
-            <p className='patientInfoText'>List of medication taken is as follows:</p>
-              {medication.map((med, i)=>{
-                return(
-                  <div key={i}>
-                        <p style={{paddingBottom:"5px", paddingTop:"5px"}}>&#x2022; Medication {i+1}</p>
-                    <div style={{padding: "0px 25px 5px 25px"}}>
-                        <p>Medication name:<span className='patientInfoText'> {med} </span> </p>
-                        <p>Tolerability:<span className='patientInfoText'>{tolerability[i].toLowerCase()} </span> </p>
-                        <p>Adherence:<span className='patientInfoText'>{adherence[i]} </span> </p>
-                        <p>Response:<span className='patientInfoText'>{response[i]} </span> </p>      
-                        <p>Dosage:<span className='patientInfoText'>{dosage[i]} </span> </p>    
-                        <p>Has been taken the effective minimum dosage for at least for 4 weeks :<span className='patientInfoText'>{medDuration[i]} </span> </p>      
-
-                    </div>
-                    
-                  </div>
-                )
-              })}
-
              <div className='smallerBoxButtonsDiv'>
                 <button className='backButtons' 
-                onClick={()=>navigate('/')}>
+                onClick={()=>navigate('/Homepage')}>
                   Go to homepage</button>
   
                 <button className='rightButtons'
@@ -107,7 +162,10 @@ const Result = ({finalSubmit, Duration, firstValue,symptom, secondValue,
               
               </div>
          )
-         }  
+
+      }
+    
+    }  
   return (
     <div>
       <Header/>

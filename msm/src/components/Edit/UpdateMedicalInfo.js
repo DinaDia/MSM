@@ -1,278 +1,169 @@
 import Header from '../Header';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import TreatmentList from '../TreatmentList';
-
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 
 const UpdateMedicalInfo = () => {
+
+  const {id}=useParams();  
+
+  const [Name, setName]=useState('');
+  const [birthDate, setBirthDate]=useState('');
+  const [Gender, setGender]=useState('');
+  const [Phone, setPhone]=useState('');
+  const [martialStatus, setMartialStatus]=useState('');
+  const [childrenNo, setChildrenNo]=useState('');
+  const [professionalStatus, setProfessionalStatus]=useState('');
+  const [currentTime, setCurrentTime]=useState('');
+  const [MSM, setMSM]=useState('');
+  const [Duration, setDuration]=useState('');
+  const [symptom, setSymptom]=useState('');
+  const [treatment, setTreatment]=useState('');
+  const [treatmentSection, setTreatmentSection]=useState([]);
+  const [treatmentClass, setTreatmentClass]=useState([]);
+  const [medication, setMedication]=useState([]);
+  const [tolerability, setTolerability]=useState([]);
+  const [adherence, setAdherence]=useState([]);
+  const [response, setResponse]=useState([]);
+  const [dosage, setDosage]=useState([]);
+  const [level, setLevel]=useState('');
+  const [aug, setAug]=useState('');
+  const [ect, setEct]=useState('');  
+  const [medDuration, setMedDuration]=useState([]);
+  const [countedMed, setCountedMed]=useState([]);
+  const [responseOfMed, setResponseOfMed]=useState([]);
+  const navigate=useNavigate();
+
+
+  const [dateOfCheckup, setDateOfCheckup]=useState([]);
+  const [checkupDuration, setCheckupDuration]=useState([]);
+  const [checkupSymptom, setCheckupSymptom]=useState([]);
   
-    const navigate=useNavigate();
-    const [treatmentType, setTreatmentType]=useState([]);
-    const [treatment, setTreatment]=useState([]);
-    const [medicine, setMedicine]=useState([]);
-    const [selectedMed, setSelectedMed]=useState("");
-    const [selectedSection, setSelectedSection]=useState("");
-    const [selectedClass, setSelectedClass]=useState("");
-    const [currentTolerability, setCurrentTolerability]=useState("");
-    const [currentAdherence, setCurrentAdherence]=useState("");
-    const [currentResponse, setCurrentResponse]=useState("");
-    const [currentDosage, setCurrentDosage]=useState("");
 
-    const {treatmentSection, treatmentClass, medicineName }=TreatmentList();
-
+  useEffect(()=>{
+    fetch('http://localhost:8000/patients/'+id).then((res)=>{
+      return res.json();
+    }).then((resp)=>{
+      setName(resp.Name);
+      setBirthDate(resp.birthDate);
+      setGender(resp.Gender);
+      setPhone(resp.Phone);
+      setMartialStatus(resp.martialStatus);
+      setChildrenNo(resp.childrenNo);
+      setProfessionalStatus(resp.professionalStatus);
+      setCurrentTime(resp.currentTime);
+      setMSM(resp.MSM);
+      setDuration(resp.Duration);
+      setSymptom(resp.symptom);
+      setTreatment(resp.treatment);
+      setTreatmentSection(resp.treatmentSection);
+      setTreatmentClass(resp.treatmentClass);
+      setMedication(resp.medication);
+      setTolerability(resp.tolerability);
+      setAdherence(resp.adherence);
+      setResponse(resp.response);
+      setDosage(resp.dosage);
+      setLevel(resp.level);
+      setAug(resp.aug);
+      setEct(resp.ect);
+      setMedDuration(resp.medDuration);
+      setCountedMed(resp.medDuration);
+      setResponse(resp.responseOfMed);
+      setDateOfCheckup(resp.dateOfCheckup);
+      setCheckupDuration(resp.checkupDuration);
+      setCheckupSymptom(resp.checkupSymptom);
+      
+      
+    }).catch((err)=>{
+      console.log(err.message)
+    })
     
-    const changeTreatmentSelection=(id)=>{
+// eslint-disable-next-line
+  }, [])
 
-      const section=treatmentClass.filter(trt=> trt.treatmentID === id);
-      setTreatment(section);
-  
-      switch(id){
-        case "1": 
-        setSelectedSection('RECOGNISED ANTIDEPRESSANTS');
-        break;
-  
-        case "2":
-        setSelectedSection('RECOGNISED AUGMENTATION THERAPIES');
-        break;
-  
-        case "3":
-        setSelectedSection('ANTIPSYCHOTICS AND MOOD STABILISERS');
-        break;
-  
-        case "4":
-        setSelectedSection('OTHER REPORTED TREATMENTS');
-        break;  
-  
-        default:
-        setSelectedSection('No treatment');          
-      }
-  
-  
-    };
-    
-    const changeTreatmentClass=(id)=>{
-      const treatmentss=medicineName.filter(trt=> trt.treatmentClassId=== id);
-      setMedicine(treatmentss);   
-  
-      switch(id){
-        case "1": 
-        setSelectedClass('Selective Serotonin Reuptake Inhibitors');
-        break;
-  
-        case "2":
-        setSelectedClass('Tricyclic Antidepressants');
-        break;
-  
-        case "3":
-        setSelectedClass('Monoamine Oxidase Inhibitors');
-        break;
-  
-        case "4":
-        setSelectedClass('Tetracyclic Antidepressants');
-        break;  
-        
-        case "5":
-        setSelectedClass('Serotonin-Noradrenaline Reuptake Inhibitors');
-        break;        
-        
-        case "6":
-        setSelectedClass('Serotonin Modulators & StimulatorsSerotonin Modulators & Stimulators');
-        break;
-  
-        case "7":
-        setSelectedClass('Noradrenaline Reuptake Inhibitors');
-        break;
-  
-        case "8":
-        setSelectedClass('Noradrenaline & Dopamine Reuptake Inhibitors');
-        break;
-  
-        case "9":
-        setSelectedClass('Melatonin Agonists');
-        break;
-  
-        case "10":
-        setSelectedClass('Others');
-        break;
-  
-        case "11":
-        setSelectedClass('First and Second Line Therapies');
-        break;
-  
-        case "12":
-        setSelectedClass('Third Line Therapies');
-        break;
-  
-        case "13":
-        setSelectedClass('Atypical Antipsychotics');
-        break;
-  
-        case "14":
-        setSelectedClass('Typical Antipsychotics');
-        break;
-  
-        case "15":
-        setSelectedClass('Anticonvulsants');
-        break;
-  
-        case "16":
-        setSelectedClass('Treatments for depression and related mood disorders');
-        break;
-  
-        case "17":
-        setSelectedClass('Physical treatments');
-        break;
-  
-  
-  
-        default:
-        setSelectedSection('No treatment');
+
+
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+
+    const DetailedInfo={Name, birthDate, Gender,Phone, martialStatus, childrenNo, professionalStatus,
+      MSM, Duration,symptom, treatment, level, aug, ect, treatmentSection, treatmentClass, medication,
+      tolerability, adherence, response, dosage, medDuration, countedMed, responseOfMed, dateOfCheckup, 
+      checkupDuration, checkupSymptom
     }
-  
-    };
-  
+
+    fetch('http://localhost:8000/patients/' + id, {
+    method: 'PUT',
+    headers: { 
+      "Accept":"application/json",
+      "Content-Type": "application/json" },
+    body: JSON.stringify(DetailedInfo)
+    }).then(() => {
+      navigate('/Homepage')
+     })
     
-    useEffect(()=>{
-      setTreatmentType(treatmentSection);
-    }, 
-    // eslint-disable-next-line 
-    [])
-    
-  
-    const handleSubmit=(e)=>{
-        e.preventDefault();
-        
-    }
+}
+
+
   return (
     <div>
-      <Header/>
-      <div>
-        <h2 className='headingTag'>Update patient record</h2>
+       <Header/>
+           <h2 className='headingTag'>Update medical information</h2>
 
-            <form className='formStyle' onSubmit={handleSubmit}>
+           <form className='formStyle' onSubmit={handleSubmit}>
+             <label>Date of checkup</label>
+             <input className='dateStyle' type="date"
+             placeholder='dd/mm/yyyy'
+             
+             value={dateOfCheckup}
+             onChange={(e)=>setDateOfCheckup(e.target.value)}  />
 
-              <label>Treatment type</label>
-              <select className='multiSelectStyle'
-              id="treatmentID"
-              onChange={(e)=>changeTreatmentSelection(e.target.value)}
-              >
-                <option hidden value="0">Select treatment section</option>
-                {
-                    treatmentSection && 
-                    treatmentSection !== undefined ?
-                    treatmentSection.map((trt, index)=>{
-                      return (
-                        <option key ={index} value={trt.id}>{trt.name}</option>
-                      )
-                    }) :
-                    "No treatment"                  
-                }
+             <label>Duration</label>
+             <select className='multiSelectStyle'
+             
+             placeholder="Select Duration"
+             value={checkupDuration} 
+             onChange={(e)=>setCheckupDuration(e.target.value)}
+             >
+                  <option hidden>Select Duration</option>
+                  <option value="Less than a year">Less than a year</option>
+                  <option value="Between a year and two">Between a year and two</option>
+                  <option value="More than two years">More than two years</option>
 
              </select>
+             
 
-              <label>Treatment class</label>
-              <select className='multiSelectStyle'
-              id="treatmentClassId"
-              onChange={(e)=>changeTreatmentClass(e.target.value)
-              }
-              >
-                <option hidden value="0">Select treatment type</option>
-                {
-
-                    treatment && 
-                    treatment !== undefined ?
-                    treatment.map((trt, index)=>{
-                      return (
-                        <option key ={index} value={trt.id}>{trt.name}</option>
-                      )
-                    }) :
-                    "No treatment"                 
-                }
-
-             </select>             
-
-             <label>Medication name</label>
-              <select className='multiSelectStyle'
-              id="MedicineId"
-              placeholder="select Medicines"
-              value={selectedMed}
-              onChange={(e)=>setSelectedMed(e.target.value)}
-              >
-                <option hidden value="0">Select medication</option>
-                {
-
-                    medicine && 
-                    medicine !== undefined ?
-                    medicine.map((trt, index)=>{
-                      return (
-                        <option key ={index} value={trt.name}>{trt.name}</option>
-                      )
-                    }) :
-                    "No treatment"                 
-                }
+             <label>Symptom</label>
+             <select className='multiSelectStyle'
+             
+             placeholder="Select Symptom"
+             value={checkupSymptom} 
+             onChange={(e)=>setCheckupSymptom(e.target.value)}
+             >
+                  <option hidden>Select Symptom</option>
+                  <option value="Subsyndromal">Subsyndromal</option>
+                  <option value="Mild">Mild</option>
+                  <option value="Moderate">Moderate</option>
+                  <option value="Severe without psychosis">Severe without psychosis</option>
+                  <option value="Severe with psychosis">Severe with psychosis</option>
 
              </select>
-
-             <label>Tolerability</label>  
-             <select className='multiSelectStyle'
-             value={currentTolerability} 
-             onChange={(e)=>setCurrentTolerability(e.target.value)}
-             >
-              <option hidden>Select Tolerability</option>
-              <option value="Good">Good</option>
-              <option value="Mini side effects">Mini side effects</option>
-              <option value="Moderate side effects">Moderate side effects</option>
-              <option value="Severe side effects">Severe side effects</option>
-            </select>           
-
-
-            <label>Adherence</label>  
-             <select className='multiSelectStyle'
-             value={currentAdherence}
-             onChange={(e)=>setCurrentAdherence(e.target.value)}
-             >
-              <option hidden>Select Adherence</option>
-              <option value="<25%"> Less than 25%</option>
-              <option value="25%-50%">25%-49%</option>
-              <option value="50%-75%">50%-74%</option>
-              <option value=">75%">More than 75%</option>
-            </select>           
-
-            <label>Response</label>  
-             <select className='multiSelectStyle'
-             value={currentResponse}
-             onChange={(e)=>setCurrentResponse(e.target.value)}
-             >
-              <option hidden>Select Response</option>
-              <option value="<25%"> Less than 25%</option>
-              <option value="25%-50%">25%-49%</option>
-              <option value="50%-75%">50%-74%</option>
-              <option value=">75%">More than 75%</option>
-            </select>           
-
-            <label>Dosage</label>
-            <input className='infoInputStyle' type="text"
-            placeholder="Specify dosage"
-            value={currentDosage} 
-            onChange={(e)=>setCurrentDosage(e.target.value)}/>
 
              <div className='smallerBoxButtonsDiv'>
-              <button className='backButtons'
-               onClick={()=>navigate('/')}>
+               <button className='backButtons'
+               onClick={()=>navigate('/Homepage')}>
                    Cancel</button>
                <button className='rightButtons'>
-                   Save</button>
-              <button className='addMoreButtons'>
-                   Add</button>                   
+                   Next</button>
              </div>
-            </form>
 
+           </form>
 
-      </div>
-    </div>
+       
+  
      
+    </div> 
   )
 }
 
